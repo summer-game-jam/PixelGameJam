@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b703y16r1yxoj"]
+
+[ext_resource type="Script" uid="uid://c8aiim8o50rr8" path="res://Scripts/Utility/esc_held_quick_esc.gd" id="1_vdvrb"]
+
+[node name="QuickEscListener" type="Node"]
+script = ExtResource("1_vdvrb")

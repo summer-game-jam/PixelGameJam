@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dt44bviobqoc5"
+path="res://.godot/imported/Party Horn - Sound Effect (HD).mp3-d1ffc34a5afc89db0f3795affeba177f.mp3str"
+
+[deps]
+
+source_file="res://Resources/audio/soundEffects/Party Horn - Sound Effect (HD).mp3"
+dest_files=["res://.godot/imported/Party Horn - Sound Effect (HD).mp3-d1ffc34a5afc89db0f3795affeba177f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

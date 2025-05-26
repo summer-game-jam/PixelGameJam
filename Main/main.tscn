@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://bmf8mkmj4diaw"]
+
+[ext_resource type="Script" uid="uid://bar6mgrtcax2u" path="res://Scripts/Scenes/Main.gd" id="1_2w1kt"]
+[ext_resource type="PackedScene" uid="uid://b703y16r1yxoj" path="res://Main/quick_esc_listener.tscn" id="1_yh5la"]
+[ext_resource type="PackedScene" uid="uid://b64hu8w8db2fd" path="res://Main/menu_ui/title_ui.tscn" id="3_qvhan"]
+[ext_resource type="AudioStream" uid="uid://1hlx2htj1mym" path="res://Resources/audio/soundEffects/forest-path-avala-mountains-246781.mp3" id="4_eunhr"]
+[ext_resource type="Texture2D" uid="uid://rogvfvs7mfc5" path="res://Resources/debugTextures/background.jpg" id="5_k3v36"]
+[ext_resource type="Script" uid="uid://dk3g5ugf2yhp0" path="res://Scripts/Scenes/move_parallax.gd" id="5_liyct"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_2w1kt")
+
+[node name="QuickEscListener" parent="." instance=ExtResource("1_yh5la")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="title_ui" parent="CanvasLayer" instance=ExtResource("3_qvhan")]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_eunhr")
+autoplay = true
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+follow_viewport_enabled = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(2.5, 2.5)
+motion_offset = Vector2(11112.5, 0)
+motion_mirroring = Vector2(4590, 0)
+script = ExtResource("5_liyct")
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("5_k3v36")
+centered = false
+
+[connection signal="quit_request" from="CanvasLayer/title_ui" to="." method="close_game"]
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

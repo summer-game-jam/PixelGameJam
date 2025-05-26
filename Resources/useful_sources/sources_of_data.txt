@@ -1,0 +1,18 @@
+Where to find text fonts
+* dafont.com
+
+Where to find shaders
+* https://godotshaders.com/
+
+Where to find sound effects
+* youtube.com -> download video and convert to audio (make sure it isn't copywritten)
+* artlist.io
+* soundstripe.com
+* pixabay
+
+SVG
+* illustrator
+* inkscape
+
+Music
+* artlist.io
