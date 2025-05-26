@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgl75nfhfrfia"]
+
+[ext_resource type="Script" uid="uid://bs75y52fkfx4d" path="res://Platforming/Player/forms/human_form.gd" id="1_nhyly"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0foxj"]
+radius = 38.0
+height = 114.0
+
+[node name="HumanForm" type="CharacterBody2D"]
+script = ExtResource("1_nhyly")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(-34, -78, -69, -21, -63, 41, 35, 49, 51, -28, 18, -106)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_0foxj")
