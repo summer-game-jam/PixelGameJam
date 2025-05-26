@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cewiwo103owmt"]
+
+[ext_resource type="PackedScene" uid="uid://bckn8ir1gs0ui" path="res://Platforming/Map/debug_map.tscn" id="2_gxw8o"]
+[ext_resource type="PackedScene" uid="uid://ofwypikl66dw" path="res://Platforming/Player/base_class/player_controller.tscn" id="2_ox132"]
+
+[node name="TestLevel" type="Node2D"]
+
+[node name="DebugMap" parent="." instance=ExtResource("2_gxw8o")]
+
+[node name="PlayerController" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("2_ox132")]
+camera = NodePath("../Camera2D")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(217, 833)

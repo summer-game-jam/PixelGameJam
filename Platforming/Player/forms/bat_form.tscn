@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://vjscbngeq1jq"]
+
+[ext_resource type="Script" uid="uid://btqw0nui087ks" path="res://Platforming/Player/forms/bat_form.gd" id="1_wibl2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2lagw"]
+radius = 11.0
+height = 50.0
+
+[node name="BatForm" type="CharacterBody2D"]
+script = ExtResource("1_wibl2")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.513726, 0.988235, 0.988235, 1)
+polygon = PackedVector2Array(-26, -14, 6, -29, 32, -15, 33, 15, -5, 27, -33, 24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_2lagw")
