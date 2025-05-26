@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="project_template"
+config/name="Vampire_Game"
 run/main_scene="uid://bmf8mkmj4diaw"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="uid://usjglsc6inkg"
+config/icon="uid://ca4owis7xnti2"
 
 [display]
 
