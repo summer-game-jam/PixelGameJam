@@ -29,9 +29,11 @@ func _physics_process(delta: float) -> void:
 
 func switch_forms(selection: int):
 	var temp_position: Vector2
+	var temp_speed: Vector2 = Vector2.ZERO
 	
 	if current_form:
 		temp_position = current_form.position
+		temp_speed = current_form.velocity
 		current_form.queue_free()
 	else:
 		temp_position = position
@@ -46,3 +48,4 @@ func switch_forms(selection: int):
 	
 	add_child(current_form)
 	current_form.position = temp_position
+	current_form.velocity = temp_speed

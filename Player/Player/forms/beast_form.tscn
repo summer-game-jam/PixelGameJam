@@ -1,11 +1,11 @@
 [gd_scene load_steps=4 format=3 uid="uid://dei0gecspkm2q"]
 
-[ext_resource type="Script" uid="uid://b6qqcem46jvo8" path="res://Platforming/Player/forms/beast_form.gd" id="1_iampk"]
-[ext_resource type="Texture2D" uid="uid://ca4owis7xnti2" path="res://Resources/debugTextures/bat.png" id="1_sk6lh"]
+[ext_resource type="Script" uid="uid://b6qqcem46jvo8" path="res://Player/Player/forms/beast_form.gd" id="1_iampk"]
+[ext_resource type="Texture2D" uid="uid://ca4owis7xnti2" path="res://Resources/debugTextures/monster.png" id="1_sk6lh"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_01pw2"]
 radius = 101.0
-height = 300.0
+height = 292.0
 
 [node name="BeastForm" type="CharacterBody2D"]
 script = ExtResource("1_iampk")

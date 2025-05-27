@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://vjscbngeq1jq"]
 
-[ext_resource type="Script" uid="uid://btqw0nui087ks" path="res://Platforming/Player/forms/bat_form.gd" id="1_wibl2"]
+[ext_resource type="Script" uid="uid://btqw0nui087ks" path="res://Player/Player/forms/bat_form.gd" id="1_wibl2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2lagw"]
 radius = 11.0

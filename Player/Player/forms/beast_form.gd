@@ -1,8 +1,8 @@
 extends CharacterBody2D
 class_name Beast
 
-var horizontal_move_speed = 10000
-var jumpPower = 1000
+var horizontal_move_speed = 50000
+var jumpPower = 500
 var gravity = 1000
 
 func _physics_process(delta: float) -> void:
@@ -13,13 +13,12 @@ func _physics_process(delta: float) -> void:
 	elif Input.is_action_pressed("right"):
 		movement_vector.x = 1
 	
-	velocity.x = horizontal_move_speed * movement_vector.x * delta
-	
 	if is_on_floor():
-		if Input.is_action_just_pressed("jump"):
+		if Input.is_action_just_pressed("space"):
 			velocity.y = -jumpPower
 		else:
 			velocity.y = 0
+		velocity.x = horizontal_move_speed * movement_vector.x * delta
 	else:
 		velocity.y += gravity * delta
 	

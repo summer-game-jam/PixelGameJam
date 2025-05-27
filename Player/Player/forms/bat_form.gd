@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Bat
 
-var move_speed: float = 100000
+var move_speed: float = 40000
 
 func _physics_process(delta: float) -> void:
 	var movement_vector = Vector2.ZERO
