@@ -7,6 +7,7 @@ enum directions {
 }
 
 var move_speed = 10000
+var alive = true
 
 @onready var left_cast: raycast_handler = $left
 @onready var right_cast: raycast_handler = $right
@@ -22,13 +23,11 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor():
 		if direction == directions.left:
 			if left_cast.ray_cast_check():
-				print("move_l")
 				velocity.x = -move_speed * delta
 			else:
 				swap_direction()
 		else:
 			if right_cast.ray_cast_check():
-				print("move_r")
 				velocity.x = move_speed * delta
 			else:
 				swap_direction()
@@ -40,7 +39,6 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func swap_direction():
-	print("swap")
 	if direction == directions.left:
 		direction = directions.right
 		sprite.flip_h = false

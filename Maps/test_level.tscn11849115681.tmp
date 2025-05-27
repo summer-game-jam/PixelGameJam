@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=4 uid="uid://cewiwo103owmt"]
 
 [ext_resource type="TileSet" uid="uid://cmfirjwpxjw4n" path="res://Maps/Map_Features/new_tile_set.tres" id="1_kafbu"]
-[ext_resource type="PackedScene" uid="uid://ofwypikl66dw" path="res://Player/form_controller/player_controller.tscn" id="2_4th80"]
+[ext_resource type="PackedScene" uid="uid://ofwypikl66dw" path="res://Player/Player/base_class/player_controller.tscn" id="2_4th80"]
 [ext_resource type="PackedScene" uid="uid://dumpp8bjs41dw" path="res://Enemy/villager/villager.tscn" id="3_nw82r"]
 
 [node name="TestLevel" type="Node2D"]

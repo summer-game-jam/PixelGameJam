@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgl75nfhfrfia"]
+
+[ext_resource type="Script" uid="uid://bs75y52fkfx4d" path="res://Player/forms/human/human_form.gd" id="1_nhyly"]
+[ext_resource type="PackedScene" uid="uid://d4g2daqok5rfd" path="res://Player/movement/humaniod_player_movement.tscn" id="2_hxqw4"]
+[ext_resource type="Texture2D" uid="uid://do5opkhuf1eag" path="res://Resources/debugTextures/human.png" id="3_8y7ay"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0foxj"]
+radius = 38.0
+height = 140.0
+
+[node name="HumanForm" type="CharacterBody2D"]
+collision_layer = 0
+script = ExtResource("1_nhyly")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_0foxj")
+
+[node name="Humaniod_Player_Movement" parent="." instance=ExtResource("2_hxqw4")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.527394, 0.527394)
+texture = ExtResource("3_8y7ay")

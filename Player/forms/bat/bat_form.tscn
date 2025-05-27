@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://vjscbngeq1jq"]
+
+[ext_resource type="Script" uid="uid://btqw0nui087ks" path="res://Player/forms/bat/bat_form.gd" id="1_wibl2"]
+[ext_resource type="PackedScene" uid="uid://d4g2daqok5rfd" path="res://Player/movement/humaniod_player_movement.tscn" id="2_v6vru"]
+[ext_resource type="PackedScene" uid="uid://cd072xsm2lpam" path="res://Player/movement/bat_player_movement.tscn" id="3_3in5n"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2lagw"]
+radius = 11.0
+height = 50.0
+
+[node name="BatForm" type="CharacterBody2D"]
+collision_layer = 0
+script = ExtResource("1_wibl2")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.513726, 0.988235, 0.988235, 1)
+polygon = PackedVector2Array(-26, -14, 6, -29, 32, -15, 33, 15, -5, 27, -33, 24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_2lagw")
+
+[node name="Humaniod_Player_Movement" parent="." instance=ExtResource("2_v6vru")]
+horizontal_move_speed = 8000
+jumpPower = 0
+
+[node name="Bat_Player_Movement" parent="." instance=ExtResource("3_3in5n")]
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(100, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -61.0
+offset_right = 50.0
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 2
+show_percentage = false

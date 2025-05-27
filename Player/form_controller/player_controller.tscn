@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://ofwypikl66dw"]
+
+[ext_resource type="Script" uid="uid://dnygllph1gpft" path="res://Player/form_controller/player_controller.gd" id="1_nfdri"]
+[ext_resource type="PackedScene" uid="uid://xvwkhxx3i6op" path="res://Utility/fill_gauge/Fill_Gauge.tscn" id="2_askd6"]
+
+[node name="PlayerController" type="Node2D"]
+script = ExtResource("1_nfdri")
+
+[node name="flight_meter" parent="." instance=ExtResource("2_askd6")]
+gauge_max = 2.0
+
+[node name="form_switch_cooldown" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true

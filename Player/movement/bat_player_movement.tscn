@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cd072xsm2lpam"]
+
+[ext_resource type="Script" uid="uid://cbppj0ga6tqra" path="res://Player/movement/bat_player_movement.gd" id="1_nnios"]
+
+[node name="Bat_Player_Movement" type="Node"]
+script = ExtResource("1_nnios")

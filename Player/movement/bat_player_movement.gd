@@ -1,9 +1,11 @@
-extends CharacterBody2D
-class_name Bat
+extends Node
+class_name Bat_Player_Movement
 
-var move_speed: float = 40000
+@export var move_speed: Vector2 = Vector2(30000, 40000)
 
-func _physics_process(delta: float) -> void:
+@onready var parent_body: CharacterBody2D = get_parent()
+
+func movement_action(delta: float) -> void:
 	var movement_vector = Vector2.ZERO
 	if Input.is_action_pressed("up"):
 		movement_vector.y = -1
@@ -15,5 +17,4 @@ func _physics_process(delta: float) -> void:
 		movement_vector.x = -1
 	
 	movement_vector = movement_vector.normalized()
-	velocity = movement_vector * move_speed * delta
-	move_and_slide()
+	parent_body.velocity = movement_vector * move_speed * delta
