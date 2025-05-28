@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dei0gecspkm2q"]
+[gd_scene load_steps=6 format=3 uid="uid://dei0gecspkm2q"]
 
 [ext_resource type="Script" uid="uid://b6qqcem46jvo8" path="res://Player/forms/beast/beast_form.gd" id="1_iampk"]
 [ext_resource type="Texture2D" uid="uid://ca4owis7xnti2" path="res://Resources/debugTextures/monster.png" id="1_sk6lh"]
 [ext_resource type="PackedScene" uid="uid://d4g2daqok5rfd" path="res://Player/movement/humaniod_player_movement.tscn" id="3_ffoug"]
+[ext_resource type="PackedScene" uid="uid://c13m6iksgp46u" path="res://Utility/direction.tscn" id="4_s5h7k"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_01pw2"]
 radius = 101.0
@@ -23,5 +24,8 @@ shape = SubResource("CapsuleShape2D_01pw2")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.0719385, 0.0719385)
 texture = ExtResource("1_sk6lh")
+flip_h = true
 
 [node name="Humaniod_Player_Movement" parent="." instance=ExtResource("3_ffoug")]
+
+[node name="Direction" parent="." instance=ExtResource("4_s5h7k")]

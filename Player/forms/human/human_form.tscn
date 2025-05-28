@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cgl75nfhfrfia"]
+[gd_scene load_steps=7 format=3 uid="uid://cgl75nfhfrfia"]
 
 [ext_resource type="Script" uid="uid://bs75y52fkfx4d" path="res://Player/forms/human/human_form.gd" id="1_nhyly"]
 [ext_resource type="PackedScene" uid="uid://d4g2daqok5rfd" path="res://Player/movement/humaniod_player_movement.tscn" id="2_hxqw4"]
-[ext_resource type="Texture2D" uid="uid://do5opkhuf1eag" path="res://Resources/debugTextures/human.png" id="3_8y7ay"]
+[ext_resource type="SpriteFrames" uid="uid://i4x6x1uey22t" path="res://Player/forms/human/human.tres" id="3_8y7ay"]
+[ext_resource type="Script" uid="uid://qswcx3bmcrxn" path="res://Utility/safe_sprite_animation_player/safe_animation_player.gd" id="4_tick6"]
+[ext_resource type="PackedScene" uid="uid://c13m6iksgp46u" path="res://Utility/direction.tscn" id="5_uakvs"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0foxj"]
 radius = 38.0
@@ -12,11 +14,19 @@ height = 140.0
 collision_layer = 0
 script = ExtResource("1_nhyly")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_0foxj")
-
 [node name="Humaniod_Player_Movement" parent="." instance=ExtResource("2_hxqw4")]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.527394, 0.527394)
-texture = ExtResource("3_8y7ay")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.242733, 0.242733)
+sprite_frames = ExtResource("3_8y7ay")
+animation = &"move"
+script = ExtResource("4_tick6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+scale = Vector2(0.85625, 0.953712)
+shape = SubResource("CapsuleShape2D_0foxj")
+
+[node name="Direction" parent="." instance=ExtResource("5_uakvs")]
+
+[connection signal="property_list_changed" from="Direction" to="Direction" method="_on_property_list_changed"]

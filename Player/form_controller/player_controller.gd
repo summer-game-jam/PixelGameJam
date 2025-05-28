@@ -3,7 +3,7 @@ class_name Player_Controller
 
 @export var camera: Camera2D
 
-var current_form: CharacterBody2D
+var current_form: Player_Base
 
 var preload_bat = preload("res://Player/forms/bat/bat_form.tscn")
 var preload_beast = preload("res://Player/forms/beast/beast_form.tscn")
@@ -34,10 +34,15 @@ func _physics_process(delta: float) -> void:
 func switch_forms(selection: int):
 	var temp_position: Vector2
 	var temp_speed: Vector2 = Vector2.ZERO
+	var temp_direction: Direction.directions
 	
 	if current_form:
+		# don't swap to yourself
+		if selection == convert_body_to_enum(current_form):
+			return
 		temp_position = current_form.position
 		temp_speed = current_form.velocity
+		temp_direction = current_form.get_direction()
 		current_form.queue_free()
 	else:
 		temp_position = position
@@ -51,8 +56,18 @@ func switch_forms(selection: int):
 		3:
 			current_form = preload_beast.instantiate()
 	
+	current_form.set_direction(temp_direction)
 	add_child(current_form)
 	current_form.position = temp_position
 	current_form.velocity = temp_speed
 	
 	$form_switch_cooldown.start()
+
+func convert_body_to_enum(body: CharacterBody2D) -> int:
+	if body is Bat:
+		return 1
+	if body is Human:
+		return 2
+	if body is Beast:
+		return 3
+	return 0

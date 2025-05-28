@@ -1,14 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://vjscbngeq1jq"]
+[gd_scene load_steps=6 format=3 uid="uid://vjscbngeq1jq"]
 
 [ext_resource type="Script" uid="uid://btqw0nui087ks" path="res://Player/forms/bat/bat_form.gd" id="1_wibl2"]
 [ext_resource type="PackedScene" uid="uid://d4g2daqok5rfd" path="res://Player/movement/humaniod_player_movement.tscn" id="2_v6vru"]
 [ext_resource type="PackedScene" uid="uid://cd072xsm2lpam" path="res://Player/movement/bat_player_movement.tscn" id="3_3in5n"]
+[ext_resource type="PackedScene" uid="uid://c13m6iksgp46u" path="res://Utility/direction.tscn" id="4_o26tm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2lagw"]
 radius = 11.0
 height = 50.0
 
 [node name="BatForm" type="CharacterBody2D"]
+scale = Vector2(-1, 1)
 collision_layer = 0
 script = ExtResource("1_wibl2")
 
@@ -39,3 +41,5 @@ offset_bottom = -34.0
 grow_horizontal = 2
 grow_vertical = 2
 show_percentage = false
+
+[node name="Direction" parent="." instance=ExtResource("4_o26tm")]
