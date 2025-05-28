@@ -13,5 +13,4 @@ func ray_cast_check(min_count:int = 0) -> bool:
 	for child: RayCast2D in ray_casts:
 		if child.is_colliding():
 			ray_count += 1
-	print(ray_count)
 	return ray_count > min_count

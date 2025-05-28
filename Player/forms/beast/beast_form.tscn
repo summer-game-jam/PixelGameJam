@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dei0gecspkm2q"]
 
 [ext_resource type="Script" uid="uid://b6qqcem46jvo8" path="res://Player/forms/beast/beast_form.gd" id="1_iampk"]
-[ext_resource type="Texture2D" uid="uid://bnx6jf2d7xinx" path="res://Resources/debugTextures/monster_pixel_full.png" id="2_ffoug"]
+[ext_resource type="Texture2D" uid="uid://ca4owis7xnti2" path="res://Resources/debugTextures/monster.png" id="1_sk6lh"]
 [ext_resource type="PackedScene" uid="uid://d4g2daqok5rfd" path="res://Player/movement/humaniod_player_movement.tscn" id="3_ffoug"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_01pw2"]
@@ -21,7 +21,7 @@ polygon = PackedVector2Array(-112, -102, -129, 56, 107, 76, 107, -105)
 shape = SubResource("CapsuleShape2D_01pw2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.147573, 0.147573)
-texture = ExtResource("2_ffoug")
+scale = Vector2(0.0719385, 0.0719385)
+texture = ExtResource("1_sk6lh")
 
 [node name="Humaniod_Player_Movement" parent="." instance=ExtResource("3_ffoug")]
