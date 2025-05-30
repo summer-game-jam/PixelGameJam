@@ -27,7 +27,7 @@ follow_viewport_enabled = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(2.5, 2.5)
-motion_offset = Vector2(507087, 0)
+motion_offset = Vector2(517504, 0)
 motion_mirroring = Vector2(4590, 0)
 script = ExtResource("5_liyct")
 

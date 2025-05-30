@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://d4g2daqok5rfd" path="res://Player/movement/humaniod_player_movement.tscn" id="2_v6vru"]
 [ext_resource type="PackedScene" uid="uid://cd072xsm2lpam" path="res://Player/movement/bat_player_movement.tscn" id="3_3in5n"]
 [ext_resource type="PackedScene" uid="uid://c13m6iksgp46u" path="res://Utility/direction.tscn" id="4_o26tm"]
-[ext_resource type="Script" uid="uid://bmrhhukmobvai" path="res://Player/light_detector/light_detector.gd" id="5_mqj6m"]
+[ext_resource type="Script" uid="uid://bmrhhukmobvai" path="res://Player/light/light_detector.gd" id="5_mqj6m"]
 [ext_resource type="Script" uid="uid://mvia3ckessfh" path="res://Utility/Raycast_Handler/raycast_handler.gd" id="6_ic3xy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2lagw"]
@@ -59,14 +59,6 @@ shape = SubResource("CapsuleShape2D_4ghi8")
 [node name="raycast_handler" type="Node2D" parent="LightDetector"]
 script = ExtResource("6_ic3xy")
 metadata/_custom_type_script = "uid://mvia3ckessfh"
-
-[node name="Label" type="Label" parent="LightDetector"]
-offset_left = -48.0
-offset_top = -123.0
-offset_right = 44.0
-offset_bottom = -62.0
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [connection signal="area_entered" from="LightDetector/Area2D" to="LightDetector" method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="LightDetector/Area2D" to="LightDetector" method="_on_area_2d_area_exited"]
