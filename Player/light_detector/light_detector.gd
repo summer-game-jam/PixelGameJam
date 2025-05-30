@@ -6,6 +6,7 @@ class_name LightDetector
 @onready var label = $Label
 
 func _physics_process(delta: float) -> void:
+	rays.update_targets()
 	if !rays.check_all_colliding():
 		label.set_text("Light")
 	else:

@@ -8,7 +8,7 @@ func _ready() -> void:
 		if child is RayCast2D:
 			ray_casts.append(child)
 
-func _physics_process(delta: float) -> void:
+func update_targets() -> void:
 	for child: RayCast2D in ray_casts:
 		if child.has_meta("target_global"):
 			child.set_target_position(child.to_local(child.get_meta("target_global")))
