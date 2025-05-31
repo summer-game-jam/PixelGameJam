@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://d4g2daqok5rfd" path="res://Player/movement/humaniod_player_movement.tscn" id="2_hxqw4"]
 [ext_resource type="SpriteFrames" uid="uid://i4x6x1uey22t" path="res://Player/forms/human/human.tres" id="3_8y7ay"]
 [ext_resource type="Script" uid="uid://qswcx3bmcrxn" path="res://Utility/safe_sprite_animation_player/safe_animation_player.gd" id="4_tick6"]
-[ext_resource type="PackedScene" uid="uid://c13m6iksgp46u" path="res://Utility/direction.tscn" id="5_uakvs"]
+[ext_resource type="PackedScene" uid="uid://c13m6iksgp46u" path="res://Utility/direction/direction.tscn" id="5_uakvs"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0foxj"]
 radius = 38.0
@@ -15,6 +15,7 @@ collision_layer = 0
 script = ExtResource("1_nhyly")
 
 [node name="Humaniod_Player_Movement" parent="." instance=ExtResource("2_hxqw4")]
+horizontal_move_speed = 30000
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.242733, 0.242733)

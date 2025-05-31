@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://btqw0nui087ks" path="res://Player/forms/bat/bat_form.gd" id="1_wibl2"]
 [ext_resource type="PackedScene" uid="uid://d4g2daqok5rfd" path="res://Player/movement/humaniod_player_movement.tscn" id="2_v6vru"]
 [ext_resource type="PackedScene" uid="uid://cd072xsm2lpam" path="res://Player/movement/bat_player_movement.tscn" id="3_3in5n"]
-[ext_resource type="PackedScene" uid="uid://c13m6iksgp46u" path="res://Utility/direction.tscn" id="4_o26tm"]
+[ext_resource type="PackedScene" uid="uid://c13m6iksgp46u" path="res://Utility/direction/direction.tscn" id="4_o26tm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2lagw"]
 radius = 11.0

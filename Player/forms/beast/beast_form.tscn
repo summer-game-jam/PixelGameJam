@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b6qqcem46jvo8" path="res://Player/forms/beast/beast_form.gd" id="1_iampk"]
 [ext_resource type="Texture2D" uid="uid://ca4owis7xnti2" path="res://Resources/debugTextures/monster.png" id="1_sk6lh"]
 [ext_resource type="PackedScene" uid="uid://d4g2daqok5rfd" path="res://Player/movement/humaniod_player_movement.tscn" id="3_ffoug"]
-[ext_resource type="PackedScene" uid="uid://c13m6iksgp46u" path="res://Utility/direction.tscn" id="4_s5h7k"]
+[ext_resource type="PackedScene" uid="uid://c13m6iksgp46u" path="res://Utility/direction/direction.tscn" id="4_s5h7k"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_01pw2"]
 radius = 101.0

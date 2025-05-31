@@ -27,9 +27,9 @@ window/stretch/mode="viewport"
 [file_customization]
 
 folder_colors={
-"res://Enemy/": "red",
 "res://Main/": "purple",
 "res://Maps/": "yellow",
+"res://NPC/": "red",
 "res://Player/": "orange",
 "res://Resources/": "green",
 "res://Utility/": "gray",
