@@ -18,6 +18,8 @@ enum states {
 var status:states = states.normal
 
 func _process(delta: float) -> void:
+	$NpcFov.scan_enviroment(delta)
 	match status:
 		states.normal:
-			normal_AI.perform_best_action(self)
+			pass
+#			normal_AI.perform_best_action(self)

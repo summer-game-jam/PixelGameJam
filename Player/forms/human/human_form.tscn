@@ -11,7 +11,8 @@ radius = 38.0
 height = 140.0
 
 [node name="HumanForm" type="CharacterBody2D"]
-collision_layer = 0
+scale = Vector2(-1, 1)
+collision_layer = 2
 script = ExtResource("1_nhyly")
 
 [node name="Humaniod_Player_Movement" parent="." instance=ExtResource("2_hxqw4")]
