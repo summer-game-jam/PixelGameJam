@@ -10,7 +10,8 @@ radius = 101.0
 height = 292.0
 
 [node name="BeastForm" type="CharacterBody2D"]
-collision_layer = 0
+scale = Vector2(-1, 1)
+collision_layer = 2
 script = ExtResource("1_iampk")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]

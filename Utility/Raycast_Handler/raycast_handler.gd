@@ -14,3 +14,11 @@ func ray_cast_check(min_count:int = 0) -> bool:
 		if child.is_colliding():
 			ray_count += 1
 	return ray_count > min_count
+
+# TODO finish
+func find_first(min_count: int = 0) -> Node:
+	var nodes_found = []
+	for child: RayCast2D in ray_casts:
+		if child.is_colliding():
+			return child.get_collider()
+	return null
