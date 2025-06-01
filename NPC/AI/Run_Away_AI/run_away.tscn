@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://blp0mycv4daea"]
+
+[ext_resource type="Script" uid="uid://d0roqbh0rq0b6" path="res://NPC/AI/Run_Away_AI/run_away_ai.gd" id="1_vjnyq"]
+
+[node name="RunAway" type="Node"]
+script = ExtResource("1_vjnyq")
+metadata/_custom_type_script = "uid://d0roqbh0rq0b6"

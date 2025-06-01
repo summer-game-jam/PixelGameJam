@@ -11,7 +11,7 @@ class_name FOV
 @onready var raycasts = $Raycast_Handler
 @export var min_number_raycast: int = 3
 
-@onready var label = $label
+@onready var label = $Label
 
 @onready var timer_since_saw_last_form: Timer = $last_form_detected
 var last_form_detected: String = ""
@@ -27,7 +27,7 @@ func _ready() -> void:
 # 2. check what form player is
 # 3. check if we saw transformation
 # 4. apply update to gauge based on what was detected
-func scan_enviroment(delta: float) -> void:
+func scan_enviroment(delta: float) -> float:
 	# 1
 	var detected_node: Node = raycasts.find_first(min_number_raycast)
 	# 2

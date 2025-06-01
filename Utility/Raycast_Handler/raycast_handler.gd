@@ -19,6 +19,10 @@ func ray_cast_check(min_count:int = 0) -> bool:
 func find_first(min_count: int = 0) -> Node:
 	var nodes_found = []
 	for child: RayCast2D in ray_casts:
-		if child.is_colliding():
+		if child.is_colliding() and child.get_collider() is Player_Base:
 			return child.get_collider()
 	return null
+
+func force_raycast_update():
+	for cast in ray_casts:
+		cast.force_raycast_update()
