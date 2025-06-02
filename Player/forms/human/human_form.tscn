@@ -1,11 +1,16 @@
+
 [gd_scene load_steps=11 format=3 uid="uid://cgl75nfhfrfia"]
+
 
 [ext_resource type="Script" uid="uid://bs75y52fkfx4d" path="res://Player/forms/human/human_form.gd" id="1_nhyly"]
 [ext_resource type="PackedScene" uid="uid://d4g2daqok5rfd" path="res://Player/movement/humaniod_player_movement.tscn" id="2_hxqw4"]
 [ext_resource type="SpriteFrames" uid="uid://i4x6x1uey22t" path="res://Player/forms/human/human.tres" id="3_8y7ay"]
 [ext_resource type="Script" uid="uid://qswcx3bmcrxn" path="res://Utility/safe_sprite_animation_player/safe_animation_player.gd" id="4_tick6"]
+[ext_resource type="PackedScene" uid="uid://c6ie4wb6e3uhs" path="res://Player/light_detector/light_detector.tscn" id="6_lpxol"]
+
 [ext_resource type="PackedScene" uid="uid://c13m6iksgp46u" path="res://Utility/direction/direction.tscn" id="5_uakvs"]
 [ext_resource type="Script" uid="uid://yjb52mvvfm5" path="res://Player/abilities/attack_base/attack.gd" id="6_lpxol"]
+
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0foxj"]
 radius = 38.0
@@ -73,7 +78,10 @@ _data = {
 }
 
 [node name="HumanForm" type="CharacterBody2D"]
-collision_layer = 2
+
+scale = Vector2(-1, 1)
+collision_layer = 128
+
 script = ExtResource("1_nhyly")
 
 [node name="Humaniod_Player_Movement" parent="." instance=ExtResource("2_hxqw4")]
@@ -92,6 +100,9 @@ scale = Vector2(0.85625, 0.953712)
 shape = SubResource("CapsuleShape2D_0foxj")
 
 [node name="Direction" parent="." instance=ExtResource("5_uakvs")]
+
+
+[node name="LightDetector" parent="." instance=ExtResource("6_lpxol")]
 
 [node name="Attack" type="Area2D" parent="."]
 collision_layer = 0
