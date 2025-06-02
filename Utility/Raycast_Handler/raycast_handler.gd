@@ -61,4 +61,3 @@ func find_first(min_count: int = 0) -> Node:
 func force_raycast_update():
 	for cast in ray_casts:
 		cast.force_raycast_update()
-

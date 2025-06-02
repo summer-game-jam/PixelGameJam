@@ -36,7 +36,6 @@ func _physics_process(delta: float) -> void:
 			determined_ai.perform_best_action(self, delta)
 			# true means can't progress any further
 			if wall.ray_cast_check() or !ground.ray_cast_check():
-				print("heh")
 				determined_ai.reached_wall(self)
 				force_update_transform()
 				wall.force_raycast_update()

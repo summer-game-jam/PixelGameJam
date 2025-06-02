@@ -71,7 +71,7 @@ offset_bottom = 23.0
 text = "fasdf"
 
 [node name="last_form_detected" type="Timer" parent="."]
-wait_time = 60.0
+wait_time = 0.1
 one_shot = true
 
 [connection signal="timeout" from="last_form_detected" to="." method="_on_last_form_detected_timeout"]

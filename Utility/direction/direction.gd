@@ -21,7 +21,6 @@ func swap_direction(new_direction: directions):
 		directions.right:
 			if (parent_body.scale.y != -1):
 				return
-	print("swapdddddddddddddddddddddddddddddd")
 	direction = new_direction
 	parent_body.scale.x = -parent_body.scale.x
 

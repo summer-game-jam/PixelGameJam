@@ -31,11 +31,9 @@ func _on_wait_timer_timeout() -> void:
 	restart_timer()
 
 func reached_wall(npc: NPC):
-	print(npc.direction.direction)
 	npc.velocity.x = 0
 	npc.direction.reverse_direction()
 	restart_timer()
-	print(npc.direction.direction)
 
 func restart_timer():
 	$wait_timer.wait_time = randf_range(min_random_range_timer, max_random_range_timer)
