@@ -1,14 +1,76 @@
-[gd_scene load_steps=7 format=3 uid="uid://cgl75nfhfrfia"]
+[gd_scene load_steps=11 format=3 uid="uid://cgl75nfhfrfia"]
 
 [ext_resource type="Script" uid="uid://bs75y52fkfx4d" path="res://Player/forms/human/human_form.gd" id="1_nhyly"]
 [ext_resource type="PackedScene" uid="uid://d4g2daqok5rfd" path="res://Player/movement/humaniod_player_movement.tscn" id="2_hxqw4"]
 [ext_resource type="SpriteFrames" uid="uid://i4x6x1uey22t" path="res://Player/forms/human/human.tres" id="3_8y7ay"]
 [ext_resource type="Script" uid="uid://qswcx3bmcrxn" path="res://Utility/safe_sprite_animation_player/safe_animation_player.gd" id="4_tick6"]
 [ext_resource type="PackedScene" uid="uid://c13m6iksgp46u" path="res://Utility/direction/direction.tscn" id="5_uakvs"]
+[ext_resource type="Script" uid="uid://yjb52mvvfm5" path="res://Player/abilities/attack_base/attack.gd" id="6_lpxol"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0foxj"]
 radius = 38.0
 height = 140.0
+
+[sub_resource type="Animation" id="Animation_lpxol"]
+resource_name = "attack"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:monitoring")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.466667, 1.23333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Polygon2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4333, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_ndvua"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:monitoring")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Polygon2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6h48p"]
+_data = {
+&"RESET": SubResource("Animation_ndvua"),
+&"attack": SubResource("Animation_lpxol")
+}
 
 [node name="HumanForm" type="CharacterBody2D"]
 collision_layer = 2
@@ -21,6 +83,7 @@ horizontal_move_speed = 30000
 scale = Vector2(0.242733, 0.242733)
 sprite_frames = ExtResource("3_8y7ay")
 animation = &"move"
+frame_progress = 0.0800905
 script = ExtResource("4_tick6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -30,4 +93,24 @@ shape = SubResource("CapsuleShape2D_0foxj")
 
 [node name="Direction" parent="." instance=ExtResource("5_uakvs")]
 
+[node name="Attack" type="Area2D" parent="."]
+collision_layer = 0
+monitoring = false
+script = ExtResource("6_lpxol")
+metadata/_custom_type_script = "uid://yjb52mvvfm5"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Attack"]
+libraries = {
+&"": SubResource("AnimationLibrary_6h48p")
+}
+
+[node name="Polygon2D" type="Polygon2D" parent="Attack"]
+visible = false
+polygon = PackedVector2Array(41, -9, 148, -7, 146, 13, 44, 16)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Attack"]
+polygon = PackedVector2Array(41, -7, 148, -6, 147, 12, 42, 14)
+
 [connection signal="property_list_changed" from="Direction" to="Direction" method="_on_property_list_changed"]
+[connection signal="area_entered" from="Attack" to="Attack" method="_on_area_entered"]
+[connection signal="attack_done" from="Attack" to="." method="_on_attack_attack_done"]

@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Entity
 class_name NPC
 
 @export var normal_AI: AI_Base
@@ -10,7 +10,7 @@ class_name NPC
 @onready var wall := $wall
 @onready var ground := $ground
 
-var move_speed = 50000
+var move_speed = 5000
 var gravity = 1000
 
 # normal, no vampire threat go on about day
@@ -19,7 +19,8 @@ var gravity = 1000
 enum states {
 	normal = 1,
 	combat = 2,
-	alert = 3
+	alert = 3,
+	dead = 4
 }
 
 var status:states = states.normal
@@ -30,14 +31,15 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor():
 		velocity.y = 0
 		var determined_ai: AI_Base = determind_state(delta)
-	
-		determined_ai.perform_best_action(self, delta)
-		# true means can't progress any further
-		if wall.ray_cast_check() or !ground.ray_cast_check():
-			print("heh")
-			determined_ai.reached_wall(self)
-			force_update_transform()
-			wall.force_raycast_update()
+		
+		if determined_ai:
+			determined_ai.perform_best_action(self, delta)
+			# true means can't progress any further
+			if wall.ray_cast_check() or !ground.ray_cast_check():
+				print("heh")
+				determined_ai.reached_wall(self)
+				force_update_transform()
+				wall.force_raycast_update()
 	else:
 		velocity.y += gravity * delta
 	
@@ -60,3 +62,8 @@ func determind_state(delta: float) -> AI_Base:
 		states.alert:
 			return alert_AI
 	return null
+
+func on_hit():
+	current_health -= 1
+	if current_health <= 0:
+		status = states.dead
