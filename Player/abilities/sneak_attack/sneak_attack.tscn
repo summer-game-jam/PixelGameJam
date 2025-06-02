@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cp0ampbx1tibd"]
+
+[ext_resource type="Script" uid="uid://mvia3ckessfh" path="res://Utility/Raycast_Handler/raycast_handler.gd" id="1_twdd7"]
+
+[node name="sneak_attack" type="Node2D"]
+
+[node name="raycast_handler" type="Node2D" parent="."]
+script = ExtResource("1_twdd7")
+metadata/_custom_type_script = "uid://mvia3ckessfh"

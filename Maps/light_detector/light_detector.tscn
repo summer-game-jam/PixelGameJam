@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6ie4wb6e3uhs"]
+
+[ext_resource type="Script" uid="uid://bmrhhukmobvai" path="res://Maps/light_detector/light_detector.gd" id="1_bhnfh"]
+[ext_resource type="Script" uid="uid://mvia3ckessfh" path="res://Utility/Raycast_Handler/raycast_handler.gd" id="2_qre1y"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4ghi8"]
+
+[node name="LightDetector" type="Node2D"]
+script = ExtResource("1_bhnfh")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_4ghi8")
+
+[node name="raycast_handler" type="Node2D" parent="."]
+script = ExtResource("2_qre1y")
+metadata/_custom_type_script = "uid://mvia3ckessfh"
+
+[node name="Label" type="Label" parent="."]
+offset_left = -48.0
+offset_top = -123.0
+offset_right = 44.0
+offset_bottom = -62.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

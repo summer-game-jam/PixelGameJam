@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b64hu8w8db2fd" path="res://Main/menu_ui/title_ui.tscn" id="3_qvhan"]
 [ext_resource type="AudioStream" uid="uid://1hlx2htj1mym" path="res://Resources/audio/soundEffects/forest-path-avala-mountains-246781.mp3" id="4_eunhr"]
 [ext_resource type="Texture2D" uid="uid://rogvfvs7mfc5" path="res://Resources/debugTextures/background.jpg" id="5_k3v36"]
-[ext_resource type="Script" uid="uid://dk3g5ugf2yhp0" path="res://move_parallax.gd" id="5_liyct"]
+[ext_resource type="Script" uid="uid://dk3g5ugf2yhp0" path="res://Utility/misc/move_parallax.gd" id="5_liyct"]
 [ext_resource type="Texture2D" uid="uid://cwres07kceo5r" path="res://Resources/debugTextures/icon.svg" id="7_f6fdm"]
 [ext_resource type="Script" uid="uid://f10eopkpprav" path="res://Main/sprite_2d.gd" id="8_rj11h"]
 
@@ -27,7 +27,7 @@ follow_viewport_enabled = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(2.5, 2.5)
-motion_offset = Vector2(334896, 0)
+motion_offset = Vector2(517504, 0)
 motion_mirroring = Vector2(4590, 0)
 script = ExtResource("5_liyct")
 

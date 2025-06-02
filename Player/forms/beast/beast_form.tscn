@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://dei0gecspkm2q"]
+
+[ext_resource type="Script" uid="uid://b6qqcem46jvo8" path="res://Player/forms/beast/beast_form.gd" id="1_iampk"]
+[ext_resource type="Texture2D" uid="uid://ca4owis7xnti2" path="res://Resources/debugTextures/monster.png" id="1_sk6lh"]
+[ext_resource type="PackedScene" uid="uid://d4g2daqok5rfd" path="res://Player/movement/humaniod_player_movement.tscn" id="3_ffoug"]
+[ext_resource type="PackedScene" uid="uid://c13m6iksgp46u" path="res://Utility/direction/direction.tscn" id="4_s5h7k"]
+[ext_resource type="PackedScene" uid="uid://c6ie4wb6e3uhs" path="res://Maps/light_detector/light_detector.tscn" id="5_y747o"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_01pw2"]
+radius = 101.0
+height = 292.0
+
+[node name="BeastForm" type="CharacterBody2D"]
+scale = Vector2(-1, 1)
+collision_layer = 130
+script = ExtResource("1_iampk")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
+color = Color(1, 0, 0, 1)
+polygon = PackedVector2Array(-112, -102, -129, 56, 107, 76, 107, -105)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_01pw2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.0719385, 0.0719385)
+texture = ExtResource("1_sk6lh")
+flip_h = true
+
+[node name="Humaniod_Player_Movement" parent="." instance=ExtResource("3_ffoug")]
+
+[node name="Direction" parent="." instance=ExtResource("4_s5h7k")]
+
+[node name="LightDetector" parent="." instance=ExtResource("5_y747o")]

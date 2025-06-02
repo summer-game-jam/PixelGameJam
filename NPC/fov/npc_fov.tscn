@@ -1,0 +1,77 @@
+[gd_scene load_steps=4 format=3 uid="uid://brixvj42o7ofg"]
+
+[ext_resource type="Script" uid="uid://d207ggluf8y45" path="res://NPC/fov/fov.gd" id="1_0dsv5"]
+[ext_resource type="PackedScene" uid="uid://5l2hc1xxi6ag" path="res://Utility/Raycast_Handler/raycast_handler.tscn" id="2_05cmm"]
+[ext_resource type="PackedScene" uid="uid://xvwkhxx3i6op" path="res://Utility/fill_gauge/Fill_Gauge.tscn" id="2_8c5ya"]
+
+[node name="NpcFov" type="Node2D"]
+script = ExtResource("1_0dsv5")
+
+[node name="FillGauge" parent="." instance=ExtResource("2_8c5ya")]
+
+[node name="Raycast_Handler" parent="." instance=ExtResource("2_05cmm")]
+position = Vector2(0, -53)
+
+[node name="RayCast2D" type="RayCast2D" parent="Raycast_Handler"]
+target_position = Vector2(900, 0)
+collision_mask = 2
+hit_from_inside = true
+
+[node name="RayCast2D2" type="RayCast2D" parent="Raycast_Handler"]
+rotation = -0.0637502
+target_position = Vector2(900, 0)
+collision_mask = 2
+hit_from_inside = true
+
+[node name="RayCast2D3" type="RayCast2D" parent="Raycast_Handler"]
+rotation = -0.211729
+target_position = Vector2(900, 0)
+collision_mask = 2
+hit_from_inside = true
+
+[node name="RayCast2D5" type="RayCast2D" parent="Raycast_Handler"]
+rotation = -0.322002
+target_position = Vector2(900, 0)
+collision_mask = 2
+hit_from_inside = true
+
+[node name="RayCast2D4" type="RayCast2D" parent="Raycast_Handler"]
+rotation = -0.136802
+target_position = Vector2(900, 0)
+collision_mask = 2
+hit_from_inside = true
+
+[node name="RayCast2D6" type="RayCast2D" parent="Raycast_Handler"]
+rotation = 0.338865
+target_position = Vector2(900, 0)
+collision_mask = 2
+hit_from_inside = true
+
+[node name="RayCast2D7" type="RayCast2D" parent="Raycast_Handler"]
+rotation = 0.190887
+target_position = Vector2(900, 0)
+collision_mask = 2
+hit_from_inside = true
+
+[node name="RayCast2D8" type="RayCast2D" parent="Raycast_Handler"]
+rotation = 0.0806136
+target_position = Vector2(900, 0)
+collision_mask = 2
+hit_from_inside = true
+
+[node name="RayCast2D9" type="RayCast2D" parent="Raycast_Handler"]
+rotation = 0.265814
+target_position = Vector2(900, 0)
+collision_mask = 2
+hit_from_inside = true
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "fasdf"
+
+[node name="last_form_detected" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="timeout" from="last_form_detected" to="." method="_on_last_form_detected_timeout"]

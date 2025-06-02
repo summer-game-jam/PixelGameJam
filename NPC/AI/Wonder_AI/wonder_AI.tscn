@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://clprebcrnjspd"]
+
+[ext_resource type="Script" uid="uid://cmutshnf7aqnd" path="res://NPC/AI/Wonder_AI/wonder.gd" id="1_iwjal"]
+
+[node name="WonderAi" type="Node"]
+script = ExtResource("1_iwjal")
+metadata/_custom_type_script = "uid://cmutshnf7aqnd"
+
+[node name="wait_timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="wait_timer" to="." method="_on_wait_timer_timeout"]

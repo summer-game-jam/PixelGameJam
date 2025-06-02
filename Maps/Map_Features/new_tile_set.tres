@@ -1,0 +1,31 @@
+[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://cmfirjwpxjw4n"]
+
+[ext_resource type="Texture2D" uid="uid://cik8cjsu4v240" path="res://Resources/debugTextures/floor_basic_tile.png" id="1_q128c"]
+[ext_resource type="Texture2D" uid="uid://gu7tx1605vam" path="res://Resources/debugTextures/wall_tile.png" id="2_ae07x"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_e5e71"]
+polygon = PackedVector2Array(-64, -23.1, 64, -22.55, -64, -22.55, 64, -22, 64, -21.8182)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_tlhbo"]
+polygon = PackedVector2Array(-64, 64, 64, 64, 64, -22.7273, -64, -24.5455)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ae07x"]
+texture = ExtResource("1_q128c")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_e5e71")
+0:0/0/occlusion_layer_0/polygon_1/polygon = SubResource("OccluderPolygon2D_tlhbo")
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -21.976, 64, -21.976, 64, 64, -64, 64)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s56m4"]
+texture = ExtResource("2_ae07x")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/modulate = Color(0.111197, 0.111197, 0.111197, 1)
+
+[resource]
+tile_size = Vector2i(128, 128)
+occlusion_layer_0/light_mask = 1
+physics_layer_0/collision_layer = 129
+sources/0 = SubResource("TileSetAtlasSource_ae07x")
+sources/1 = SubResource("TileSetAtlasSource_s56m4")
