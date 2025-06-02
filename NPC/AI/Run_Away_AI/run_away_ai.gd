@@ -1,0 +1,2 @@
+extends AI_Base
+class_name Run_Away_AI

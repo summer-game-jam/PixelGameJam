@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Entity
 class_name Player_Base
 
 func get_direction() -> Direction.directions:
