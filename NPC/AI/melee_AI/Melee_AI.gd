@@ -19,6 +19,11 @@ func perform_best_action(npc: NPC, delta: float):
 		var players: Array[Node] = get_tree().get_nodes_in_group("player")
 		if players.size() > 0:
 			var player = players[0]
+			# face them
+			if npc.global_position.x < player.global_position.x:
+				npc.direction.swap_direction(Direction.directions.right)
+			else:
+				npc.direction.swap_direction(Direction.directions.left)
 			# attack
 			if abs(npc.global_position.distance_to(player.global_position)) <= attempt_attack_range:
 				current_state = states.attacking
@@ -28,7 +33,7 @@ func perform_best_action(npc: NPC, delta: float):
 				var movement_vector: float = 1
 				if npc.global_position.x > player.global_position.x:
 					movement_vector = -1
-				npc.velocity.x = movement_vector * npc.move_speed * delta
+				npc.velocity.x = movement_vector * npc.move_speed * delta * 2.5
 
 func reached_wall(npc: NPC):
 	npc.velocity.x = 0

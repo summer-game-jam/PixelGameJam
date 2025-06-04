@@ -33,10 +33,10 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor():
 		velocity.y = 0
 		var determined_ai: AI_Base = determind_state(delta)
-		if determined_ai != current_ai:
-			determined_ai.swap_to_ai()
-			current_ai = determined_ai
 		if determined_ai:
+			if determined_ai != current_ai:
+				determined_ai.swap_to_ai()
+				current_ai = determined_ai
 			determined_ai.perform_best_action(self, delta)
 			# true means can't progress any further
 			if wall.ray_cast_check() or !ground.ray_cast_check():

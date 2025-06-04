@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d4c32132fyolh"]
+[gd_scene load_steps=16 format=3 uid="uid://d4c32132fyolh"]
 
 [ext_resource type="Script" uid="uid://cvl6qkiqptpt6" path="res://NPC/npc/npc.gd" id="1_jp0il"]
 [ext_resource type="Script" uid="uid://v5j780vritwn" path="res://NPC/AI/Patrol_AI/Patrol_AI.gd" id="2_a47gs"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://yjb52mvvfm5" path="res://Player/abilities/attack_base/attack.gd" id="7_owi1u"]
 [ext_resource type="PackedScene" uid="uid://5l2hc1xxi6ag" path="res://Utility/Raycast_Handler/raycast_handler.tscn" id="7_qpc3l"]
 [ext_resource type="PackedScene" uid="uid://deiouofjr0ovf" path="res://NPC/AI/melee_AI/Melee_AI.tscn" id="8_bajbd"]
+[ext_resource type="Script" uid="uid://cemvtjwsihfye" path="res://NPC/hit_detection/hit_detection.gd" id="8_owi1u"]
 [ext_resource type="PackedScene" uid="uid://c13m6iksgp46u" path="res://Utility/direction/direction.tscn" id="9_bajbd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_moies"]
@@ -107,6 +108,9 @@ _data = {
 &"attack": SubResource("Animation_owi1u")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qpc3l"]
+size = Vector2(70, 153)
+
 [node name="GuardTorchSword" type="CharacterBody2D" node_paths=PackedStringArray("normal_AI", "combat_AI", "alert_AI")]
 collision_layer = 0
 script = ExtResource("1_jp0il")
@@ -165,6 +169,14 @@ libraries = {
 [node name="MeleeAi" parent="." instance=ExtResource("8_bajbd")]
 
 [node name="Direction" parent="." instance=ExtResource("9_bajbd")]
+
+[node name="Hit_Box2" type="Area2D" parent="."]
+script = ExtResource("8_owi1u")
+metadata/_custom_type_script = "uid://cemvtjwsihfye"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hit_Box2"]
+position = Vector2(1, 1.5)
+shape = SubResource("RectangleShape2D_qpc3l")
 
 [connection signal="animation_finished" from="Hit_Box/AnimationPlayer" to="MeleeAi" method="attack_finished"]
 [connection signal="attack" from="MeleeAi" to="Hit_Box" method="attack"]
