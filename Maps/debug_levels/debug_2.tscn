@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjob7x3j5yt06"]
+
+[ext_resource type="PackedScene" uid="uid://ofwypikl66dw" path="res://Player/form_controller/player_controller.tscn" id="1_cjgy0"]
+[ext_resource type="PackedScene" uid="uid://cgl75nfhfrfia" path="res://Player/forms/human/human_form.tscn" id="2_b5ytf"]
+[ext_resource type="TileSet" uid="uid://fokgn5f2cgji" path="res://Maps/Map_Features/dirt.tres" id="3_220em"]
+
+[node name="Debug2" type="Node2D"]
+
+[node name="PlayerController" parent="." instance=ExtResource("1_cjgy0")]
+
+[node name="HumanForm" parent="." instance=ExtResource("2_b5ytf")]
+position = Vector2(2, -28)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_set = ExtResource("3_220em")

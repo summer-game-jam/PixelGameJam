@@ -1,0 +1,24 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://fokgn5f2cgji"]
+
+[ext_resource type="Texture2D" uid="uid://c1m7q4vmpri1k" path="res://Resources/tileSets/ground-Sheet.png" id="1_kb6p2"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kcdi7"]
+texture = ExtResource("1_kb6p2")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+4:1/0 = 0
+3:1/0 = 0
+2:1/0 = 0
+1:1/0 = 0
+0:1/0 = 0
+5:0/0 = 0
+4:2/0 = 0
+0:2/0 = 0
+
+[resource]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_kcdi7")

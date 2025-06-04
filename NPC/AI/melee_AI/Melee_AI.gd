@@ -14,7 +14,6 @@ signal attack
 var current_state = states.surprised
 
 func perform_best_action(npc: NPC, delta: float):
-	print(current_state)
 	if current_state == states.combat:
 		var players: Array[Node] = get_tree().get_nodes_in_group("player")
 		if players.size() > 0:
@@ -39,7 +38,6 @@ func reached_wall(npc: NPC):
 	npc.velocity.x = 0
 
 func swap_to_ai():
-	print("swap")
 	if current_state != states.attacking:
 		current_state = states.surprised
 		$surprise_timer.start()
@@ -48,6 +46,5 @@ func attack_finished(_temp: StringName):
 	current_state = states.combat
 
 func surpise_over():
-	print("over")
 	if current_state == states.surprised:
 		current_state = states.combat

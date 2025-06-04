@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=4 uid="uid://cewiwo103owmt"]
 
-[ext_resource type="TileSet" uid="uid://cmfirjwpxjw4n" path="res://Maps/Map_Features/new_tile_set.tres" id="1_kafbu"]
+[ext_resource type="TileSet" uid="uid://cmfirjwpxjw4n" path="res://Maps/Map_Features/debug.tres" id="1_kafbu"]
 [ext_resource type="PackedScene" uid="uid://ofwypikl66dw" path="res://Player/form_controller/player_controller.tscn" id="2_4th80"]
 [ext_resource type="PackedScene" uid="uid://dtj22hehi0wa4" path="res://Maps/Map_Features/light.tscn" id="4_4th80"]
 [ext_resource type="PackedScene" uid="uid://d4c32132fyolh" path="res://NPC/soliders/guards/guard_torch_sword/guard_torch_sword.tscn" id="4_nw82r"]
