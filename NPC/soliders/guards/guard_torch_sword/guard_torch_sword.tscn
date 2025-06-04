@@ -1,0 +1,68 @@
+[gd_scene load_steps=10 format=3 uid="uid://d4c32132fyolh"]
+
+[ext_resource type="Script" uid="uid://cvl6qkiqptpt6" path="res://NPC/npc/npc.gd" id="1_jp0il"]
+[ext_resource type="Script" uid="uid://v5j780vritwn" path="res://NPC/AI/Patrol_AI/Patrol_AI.gd" id="2_a47gs"]
+[ext_resource type="PackedScene" uid="uid://clprebcrnjspd" path="res://NPC/AI/Wonder_AI/wonder_AI.tscn" id="3_l5505"]
+[ext_resource type="Script" uid="uid://xlw1jf6nqwtj" path="res://NPC/AI/melee_AI/Melee_AI.gd" id="4_5lsva"]
+[ext_resource type="PackedScene" uid="uid://brixvj42o7ofg" path="res://NPC/fov/npc_fov.tscn" id="5_owi1u"]
+[ext_resource type="Script" uid="uid://mvia3ckessfh" path="res://Utility/Raycast_Handler/raycast_handler.gd" id="6_bajbd"]
+[ext_resource type="PackedScene" uid="uid://5l2hc1xxi6ag" path="res://Utility/Raycast_Handler/raycast_handler.tscn" id="7_qpc3l"]
+[ext_resource type="Script" uid="uid://cemvtjwsihfye" path="res://NPC/hit_detection/hit_detection.gd" id="8_owi1u"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_moies"]
+radius = 36.0
+height = 164.0
+
+[node name="GuardTorchSword" type="CharacterBody2D" node_paths=PackedStringArray("normal_AI", "combat_AI", "alert_AI")]
+script = ExtResource("1_jp0il")
+normal_AI = NodePath("Patrol_AI")
+combat_AI = NodePath("Melee_AI")
+alert_AI = NodePath("WonderAi")
+metadata/_custom_type_script = "uid://cvl6qkiqptpt6"
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(1, 1, 0.439216, 1)
+polygon = PackedVector2Array(0, -82, -35, -55, -32, 79, 32, 80, 35, -58)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_moies")
+
+[node name="Patrol_AI" type="Node" parent="."]
+script = ExtResource("2_a47gs")
+metadata/_custom_type_script = "uid://v5j780vritwn"
+
+[node name="WonderAi" parent="." instance=ExtResource("3_l5505")]
+
+[node name="Melee_AI" type="Node" parent="."]
+script = ExtResource("4_5lsva")
+metadata/_custom_type_script = "uid://xlw1jf6nqwtj"
+
+[node name="NpcFov" parent="." instance=ExtResource("5_owi1u")]
+
+[node name="wall" type="Node2D" parent="."]
+script = ExtResource("6_bajbd")
+metadata/_custom_type_script = "uid://mvia3ckessfh"
+
+[node name="RayCast2D2" type="RayCast2D" parent="wall"]
+position = Vector2(4, 22)
+target_position = Vector2(40, 0)
+
+[node name="ground" parent="." instance=ExtResource("7_qpc3l")]
+
+[node name="RayCast2D" type="RayCast2D" parent="ground"]
+position = Vector2(42, 57)
+target_position = Vector2(0, 41)
+
+[node name="Polygon2D2" type="Polygon2D" parent="."]
+position = Vector2(-26, -36)
+color = Color(0.617455, 0.617455, 0.617455, 1)
+polygon = PackedVector2Array(-38, -59, 1, -110, 54, -59, 10, -59, 10, 75, -7, 74, -8, -57)
+
+[node name="Hit_Box" type="Area2D" parent="."]
+script = ExtResource("8_owi1u")
+metadata/_custom_type_script = "uid://cemvtjwsihfye"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hit_Box"]
+position = Vector2(100, 19)
+rotation = 1.57706
+polygon = PackedVector2Array(-38, -59, 1, -110, 54, -59, 10, -59, 10, 75, -7, 74, -8, -57)
