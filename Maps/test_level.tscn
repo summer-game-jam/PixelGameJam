@@ -2,8 +2,8 @@
 
 [ext_resource type="TileSet" uid="uid://cmfirjwpxjw4n" path="res://Maps/Map_Features/new_tile_set.tres" id="1_kafbu"]
 [ext_resource type="PackedScene" uid="uid://ofwypikl66dw" path="res://Player/form_controller/player_controller.tscn" id="2_4th80"]
-[ext_resource type="PackedScene" uid="uid://dumpp8bjs41dw" path="res://NPC/villagers/villager_nothing/villager.tscn" id="3_nw82r"]
 [ext_resource type="PackedScene" uid="uid://dtj22hehi0wa4" path="res://Maps/Map_Features/light.tscn" id="4_4th80"]
+[ext_resource type="PackedScene" uid="uid://d4c32132fyolh" path="res://NPC/soliders/guards/guard_torch_sword/guard_torch_sword.tscn" id="4_nw82r"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_4th80"]
 polygon = PackedVector2Array(1213, -165, 1619, -138, 1257, -118)
@@ -32,9 +32,6 @@ camera = NodePath("../Camera2D")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(217, 833)
 
-[node name="villager2" parent="." instance=ExtResource("3_nw82r")]
-position = Vector2(859, 837)
-
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 color = Color(0.621524, 0.621524, 0.621524, 1)
 blend_mode = 1
@@ -52,3 +49,6 @@ position = Vector2(991, 71)
 position = Vector2(902, 46)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="GuardTorchSword" parent="." instance=ExtResource("4_nw82r")]
+position = Vector2(762, 836)

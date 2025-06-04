@@ -37,6 +37,10 @@ folder_colors={
 "res://game_mechanic_2/": "orange"
 }
 
+[global_group]
+
+player="is a player character; used for npc ai"
+
 [input]
 
 esc={

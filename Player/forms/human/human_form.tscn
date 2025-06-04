@@ -72,7 +72,7 @@ _data = {
 &"attack": SubResource("Animation_lpxol")
 }
 
-[node name="HumanForm" type="CharacterBody2D"]
+[node name="HumanForm" type="CharacterBody2D" groups=["player"]]
 scale = Vector2(-1, 1)
 collision_layer = 130
 script = ExtResource("1_nhyly")
