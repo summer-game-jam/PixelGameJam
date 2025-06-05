@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c6ie4wb6e3uhs"]
+[gd_scene load_steps=5 format=3 uid="uid://c6ie4wb6e3uhs"]
 
 [ext_resource type="Script" uid="uid://bmrhhukmobvai" path="res://Maps/light_detector/light_detector.gd" id="1_bhnfh"]
 [ext_resource type="Script" uid="uid://mvia3ckessfh" path="res://Utility/Raycast_Handler/raycast_handler.gd" id="2_qre1y"]
+[ext_resource type="Theme" uid="uid://s674w0oykrwq" path="res://Resources/theme/gothic.tres" id="3_pc25c"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4ghi8"]
 
@@ -22,6 +23,7 @@ offset_left = -48.0
 offset_top = -123.0
 offset_right = 44.0
 offset_bottom = -62.0
+theme = ExtResource("3_pc25c")
 horizontal_alignment = 1
 vertical_alignment = 1
 

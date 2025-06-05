@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://odwh3mu2opnb" path="res://Maps/Light.gd" id="1_wr0uh"]
 
 [sub_resource type="Gradient" id="Gradient_4th80"]
-interpolation_mode = 1
-offsets = PackedFloat32Array(0, 0.691558)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+interpolation_color_space = 1
+offsets = PackedFloat32Array(0, 0.824675)
+colors = PackedColorArray(0.782913, 0.406042, 0, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_nw82r"]
 gradient = SubResource("Gradient_4th80")
@@ -19,14 +19,12 @@ radius = 381.033
 script = ExtResource("1_wr0uh")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(1033, 467)
 energy = 2.5
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_nw82r")
 texture_scale = 12.0963
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(1033, 467)
 collision_mask = 128
 gravity_point_center = Vector2(0, -1)
 gravity_direction = Vector2(0, -1)

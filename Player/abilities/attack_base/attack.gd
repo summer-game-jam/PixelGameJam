@@ -24,7 +24,10 @@ func attack():
 		anim_player.play(animation)
 
 func attack_finished(name: StringName):
+	if (name == "RESET"):
+		return
 	monitoring = false
+	anim_player.play("RESET")
 	emit_signal("attack_done")
 
 # must not be self
