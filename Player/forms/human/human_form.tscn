@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cgl75nfhfrfia"]
+[gd_scene load_steps=10 format=3 uid="uid://cgl75nfhfrfia"]
 
 [ext_resource type="Script" uid="uid://bs75y52fkfx4d" path="res://Player/forms/human/human_form.gd" id="1_nhyly"]
 [ext_resource type="PackedScene" uid="uid://d4g2daqok5rfd" path="res://Player/movement/humaniod_player_movement.tscn" id="2_hxqw4"]
 [ext_resource type="SpriteFrames" uid="uid://i4x6x1uey22t" path="res://Player/forms/human/human.tres" id="3_8y7ay"]
-[ext_resource type="Script" uid="uid://qswcx3bmcrxn" path="res://Utility/safe_sprite_animation_player/safe_animation_player.gd" id="4_tick6"]
 [ext_resource type="PackedScene" uid="uid://c13m6iksgp46u" path="res://Utility/direction/direction.tscn" id="5_uakvs"]
 [ext_resource type="Script" uid="uid://yjb52mvvfm5" path="res://Player/abilities/attack_base/attack.gd" id="6_lpxol"]
 
@@ -108,7 +107,6 @@ horizontal_move_speed = 30000
 scale = Vector2(2.03014, 2.03014)
 sprite_frames = ExtResource("3_8y7ay")
 animation = &"idle"
-script = ExtResource("4_tick6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
