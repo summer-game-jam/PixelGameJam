@@ -30,14 +30,11 @@ func _ready() -> void:
 func scan_enviroment(delta: float) -> float:
 	# 1
 	var detected_node: Node = raycasts.find_first(min_number_raycast)
-	print(1)
-	print(detected_node)
+
 	# 2
 	if detected_node is Player_Base:
-		print(2)
 		# 3
 		if timer_since_saw_last_form.wait_time > 0:
-			print(3)
 			# saw transformation
 			if last_form_detected != "" and detected_node.name != last_form_detected and !vampire_compramised:
 				vampire_compramised = true
@@ -46,7 +43,6 @@ func scan_enviroment(delta: float) -> float:
 		last_form_detected = detected_node.name
 		timer_since_saw_last_form.start()
 		# 4
-		print(5)
 		if detected_node is Human:
 			if vampire_compramised:
 				detection_meter.fill_gauge(detection_rate * delta * 0.7)

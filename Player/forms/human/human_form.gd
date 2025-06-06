@@ -2,17 +2,13 @@ extends Player_Base
 class_name Human
 
 var attacking: bool = false
-var touched_ground: bool = true
 
 func _ready() -> void:
 	$Attack/AnimationPlayer.play("RESET")
 
 func _physics_process(delta: float) -> void:
-	if is_on_floor():
-		touched_ground = true
-	if Input.is_action_just_pressed("left_click") and !attacking and touched_ground:
+	if Input.is_action_just_pressed("left_click") and !attacking and is_on_floor():
 		attacking = true
-		touched_ground = false
 		velocity = Vector2(0, 0)
 		$Attack.attack()
 	elif !attacking:
@@ -21,6 +17,7 @@ func _physics_process(delta: float) -> void:
 			$AnimatedSprite2D.play("idle")
 		else:
 			$AnimatedSprite2D.play("move")
+		print(velocity)
 		$Direction.determind_direction(velocity)
 	move_and_slide()
 

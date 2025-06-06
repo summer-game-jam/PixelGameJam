@@ -1,0 +1,182 @@
+[gd_scene load_steps=16 format=3 uid="uid://d4c32132fyolh"]
+
+[ext_resource type="Script" uid="uid://cvl6qkiqptpt6" path="res://NPC/npc/npc.gd" id="1_jp0il"]
+[ext_resource type="Script" uid="uid://v5j780vritwn" path="res://NPC/AI/Patrol_AI/Patrol_AI.gd" id="2_a47gs"]
+[ext_resource type="PackedScene" uid="uid://clprebcrnjspd" path="res://NPC/AI/Wonder_AI/wonder_AI.tscn" id="3_l5505"]
+[ext_resource type="PackedScene" uid="uid://brixvj42o7ofg" path="res://NPC/fov/npc_fov.tscn" id="5_owi1u"]
+[ext_resource type="Script" uid="uid://mvia3ckessfh" path="res://Utility/Raycast_Handler/raycast_handler.gd" id="6_bajbd"]
+[ext_resource type="Script" uid="uid://yjb52mvvfm5" path="res://Player/abilities/attack_base/attack.gd" id="7_owi1u"]
+[ext_resource type="PackedScene" uid="uid://5l2hc1xxi6ag" path="res://Utility/Raycast_Handler/raycast_handler.tscn" id="7_qpc3l"]
+[ext_resource type="PackedScene" uid="uid://deiouofjr0ovf" path="res://NPC/AI/melee_AI/Melee_AI.tscn" id="8_bajbd"]
+[ext_resource type="Script" uid="uid://cemvtjwsihfye" path="res://NPC/hit_detection/hit_detection.gd" id="8_owi1u"]
+[ext_resource type="PackedScene" uid="uid://c13m6iksgp46u" path="res://Utility/direction/direction.tscn" id="9_bajbd"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_moies"]
+radius = 36.0
+height = 164.0
+
+[sub_resource type="Animation" id="Animation_owi1u"]
+resource_name = "attack"
+markers = [{
+"color": Color(1, 1, 1, 1),
+"name": &"lag",
+"time": 0.8
+}, {
+"color": Color(1, 1, 1, 1),
+"name": &"die",
+"time": 0.5
+}]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionPolygon2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.833333, 1),
+"transitions": PackedFloat32Array(1, 0.0915054, 1.56917, 1),
+"update": 0,
+"values": [Vector2(-20.515, -31), Vector2(-42, 7), Vector2(126, 7), Vector2(100.295, 7)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionPolygon2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.57193]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_bajbd"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionPolygon2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-20.515, -31)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionPolygon2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qpc3l"]
+_data = {
+&"RESET": SubResource("Animation_bajbd"),
+&"attack": SubResource("Animation_owi1u")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qpc3l"]
+size = Vector2(70, 153)
+
+[node name="GuardTorchSword" type="CharacterBody2D" node_paths=PackedStringArray("normal_AI", "combat_AI", "alert_AI")]
+collision_layer = 0
+script = ExtResource("1_jp0il")
+normal_AI = NodePath("WonderAi")
+combat_AI = NodePath("MeleeAi")
+alert_AI = NodePath("WonderAi")
+metadata/_custom_type_script = "uid://cvl6qkiqptpt6"
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(1, 1, 0.439216, 1)
+polygon = PackedVector2Array(0, -82, -35, -55, -32, 79, 32, 80, 35, -58)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_moies")
+
+[node name="Patrol_AI" type="Node" parent="."]
+script = ExtResource("2_a47gs")
+metadata/_custom_type_script = "uid://v5j780vritwn"
+
+[node name="WonderAi" parent="." instance=ExtResource("3_l5505")]
+
+[node name="NpcFov" parent="." instance=ExtResource("5_owi1u")]
+
+[node name="wall" type="Node2D" parent="."]
+script = ExtResource("6_bajbd")
+metadata/_custom_type_script = "uid://mvia3ckessfh"
+
+[node name="RayCast2D2" type="RayCast2D" parent="wall"]
+position = Vector2(4, 22)
+target_position = Vector2(40, 0)
+
+[node name="ground" parent="." instance=ExtResource("7_qpc3l")]
+
+[node name="RayCast2D" type="RayCast2D" parent="ground"]
+position = Vector2(42, 57)
+target_position = Vector2(0, 41)
+
+[node name="Hit_Box" type="Area2D" parent="."]
+monitoring = false
+script = ExtResource("7_owi1u")
+metadata/_custom_type_script = "uid://cemvtjwsihfye"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hit_Box"]
+position = Vector2(-20.515, -31)
+polygon = PackedVector2Array(-38, -59, 1, -110, 54, -59, 10, -59, 10, 75, -7, 74, -8, -57)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Hit_Box/CollisionPolygon2D"]
+color = Color(0.617455, 0.617455, 0.617455, 1)
+polygon = PackedVector2Array(-38, -59, 1, -110, 54, -59, 10, -59, 10, 75, -7, 74, -8, -57)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Hit_Box"]
+libraries = {
+&"": SubResource("AnimationLibrary_qpc3l")
+}
+
+[node name="MeleeAi" parent="." instance=ExtResource("8_bajbd")]
+
+[node name="Direction" parent="." instance=ExtResource("9_bajbd")]
+
+[node name="Hit_Box2" type="Area2D" parent="."]
+script = ExtResource("8_owi1u")
+metadata/_custom_type_script = "uid://cemvtjwsihfye"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hit_Box2"]
+position = Vector2(1, 1.5)
+shape = SubResource("RectangleShape2D_qpc3l")
+
+[connection signal="animation_finished" from="Hit_Box/AnimationPlayer" to="MeleeAi" method="attack_finished"]
+[connection signal="attack" from="MeleeAi" to="Hit_Box" method="attack"]

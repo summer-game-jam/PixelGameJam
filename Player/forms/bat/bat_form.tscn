@@ -17,7 +17,7 @@ height = 50.0
 collision_layer = 128
 script = ExtResource("1_wibl2")
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
+[node name="Polygon2D" type="Polygon2D" parent="." groups=["player"]]
 color = Color(0.513726, 0.988235, 0.988235, 1)
 polygon = PackedVector2Array(-26, -14, 6, -29, 32, -15, 33, 15, -5, 27, -33, 24)
 

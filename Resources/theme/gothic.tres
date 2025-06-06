@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://s674w0oykrwq"]
+
+[ext_resource type="FontFile" uid="uid://cgf4itifrv7j7" path="res://Resources/font/OldeTome.ttf" id="1_rawy0"]
+
+[resource]
+Label/fonts/font = ExtResource("1_rawy0")

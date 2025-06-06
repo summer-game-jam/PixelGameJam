@@ -10,7 +10,7 @@
 radius = 101.0
 height = 292.0
 
-[node name="BeastForm" type="CharacterBody2D"]
+[node name="BeastForm" type="CharacterBody2D" groups=["player"]]
 scale = Vector2(-1, 1)
 collision_layer = 130
 script = ExtResource("1_iampk")

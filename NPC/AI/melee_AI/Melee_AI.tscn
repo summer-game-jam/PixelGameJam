@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://deiouofjr0ovf"]
+
+[ext_resource type="Script" uid="uid://xlw1jf6nqwtj" path="res://NPC/AI/melee_AI/Melee_AI.gd" id="1_8r58k"]
+
+[node name="MeleeAi" type="Node"]
+script = ExtResource("1_8r58k")
+metadata/_custom_type_script = "uid://xlw1jf6nqwtj"
+
+[node name="surprise_timer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="timeout" from="surprise_timer" to="." method="surpise_over"]

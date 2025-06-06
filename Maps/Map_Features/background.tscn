@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=4 uid="uid://djb6xmbcbj6ay"]
 
-[ext_resource type="TileSet" uid="uid://cmfirjwpxjw4n" path="res://Maps/Map_Features/new_tile_set.tres" id="1_mntt2"]
+[ext_resource type="TileSet" uid="uid://cmfirjwpxjw4n" path="res://Maps/Map_Features/debug.tres" id="1_mntt2"]
 
 [node name="Background" type="Node2D"]
 

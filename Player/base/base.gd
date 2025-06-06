@@ -1,6 +1,8 @@
 extends Entity
 class_name Player_Base
 
+@onready var direction: Direction = $Direction
+
 func get_direction() -> Direction.directions:
 	var direction_node = find_direction_node()
 	if direction_node:
