@@ -5,8 +5,12 @@ class_name LightDetector
 @onready var rays: raycast_handler = $raycast_handler
 @onready var label = $Label
 
+## true = light; flase = dark
+var in_light: bool = false
+
 func _physics_process(delta: float) -> void:
 	rays.update_targets()
+	in_light = !rays.check_all_colliding()
 	if !rays.check_all_colliding():
 		label.set_text("Light")
 	else:

@@ -21,6 +21,9 @@ func fill_gauge(amount: float):
 func is_gauge_empty() -> bool:
 	return abs(current_gauge) < 0.00000001
 
+func is_gauge_full() -> bool:
+	return abs(current_gauge - 100) < 0.00000001
+
 func gauge_precent() -> float:
 	return current_gauge / gauge_max
 	

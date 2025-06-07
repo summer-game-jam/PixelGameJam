@@ -26,7 +26,6 @@ shape = SubResource("CapsuleShape2D_2lagw")
 
 [node name="Humaniod_Player_Movement" parent="." instance=ExtResource("2_v6vru")]
 horizontal_move_speed = 8000
-jumpPower = 0
 
 [node name="Bat_Player_Movement" parent="." instance=ExtResource("3_3in5n")]
 

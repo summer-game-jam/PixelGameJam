@@ -5,6 +5,8 @@ class_name Player_Controller
 
 var current_form: Player_Base
 
+var last_form:int = 2
+
 var preload_bat = preload("res://Player/forms/bat/bat_form.tscn")
 var preload_beast = preload("res://Player/forms/beast/beast_form.tscn")
 var preload_human = preload("res://Player/forms/human/human_form.tscn")
@@ -16,7 +18,12 @@ func _physics_process(delta: float) -> void:
 	var selection = 0
 	if ($form_switch_cooldown.time_left == 0):
 		if Input.is_action_just_pressed("1"):
-			selection = 1
+			if !current_form is Bat: #and $flight_meter.is_gauge_full():
+				if current_form is Human:
+					last_form = 2
+				elif current_form is Beast:
+					last_form = 3
+				selection = 1
 		if Input.is_action_just_pressed("2"):
 			selection = 2
 		if Input.is_action_just_pressed("3"):
@@ -71,3 +78,6 @@ func convert_body_to_enum(body: CharacterBody2D) -> int:
 	if body is Beast:
 		return 3
 	return 0
+
+func out_of_flight():
+	switch_forms(last_form)
