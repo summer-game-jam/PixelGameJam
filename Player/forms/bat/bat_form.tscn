@@ -13,11 +13,11 @@ height = 50.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4ghi8"]
 
-[node name="BatForm" type="CharacterBody2D"]
+[node name="BatForm" type="CharacterBody2D" groups=["player"]]
 collision_layer = 128
 script = ExtResource("1_wibl2")
 
-[node name="Polygon2D" type="Polygon2D" parent="." groups=["player"]]
+[node name="Polygon2D" type="Polygon2D" parent="."]
 color = Color(0.513726, 0.988235, 0.988235, 1)
 polygon = PackedVector2Array(-26, -14, 6, -29, 32, -15, 33, 15, -5, 27, -33, 24)
 

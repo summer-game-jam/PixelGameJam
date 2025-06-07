@@ -4,6 +4,7 @@ class_name Player_Controller
 @export var camera: Camera2D
 
 var current_form: Player_Base
+var light_detector: LightDetector
 
 var last_form:int = 2
 
@@ -15,6 +16,15 @@ func _ready() -> void:
 	switch_forms(3)
 
 func _physics_process(delta: float) -> void:
+	# Update light detector
+	var players: Array[Node] = get_tree().get_nodes_in_group("player")
+	if players.size() > 0:
+		var player = players[0]
+		var children = player.get_children()
+		for child in children:
+			if child is LightDetector:
+				light_detector = child
+
 	var selection = 0
 	if ($form_switch_cooldown.time_left == 0):
 		if Input.is_action_just_pressed("1"):
@@ -37,6 +47,9 @@ func _physics_process(delta: float) -> void:
 	
 	if !current_form is Bat:
 		$flight_meter.fill_gauge(delta)
+	
+	if current_form is Beast and light_detector.in_light:
+		switch_forms(2)
 
 func switch_forms(selection: int):
 	var temp_position: Vector2
@@ -50,7 +63,8 @@ func switch_forms(selection: int):
 		temp_position = current_form.position
 		temp_speed = current_form.velocity
 		temp_direction = current_form.get_direction()
-		current_form.queue_free()
+		if selection != 3:
+			current_form.queue_free()
 	else:
 		temp_position = position
 	
@@ -61,6 +75,10 @@ func switch_forms(selection: int):
 		2:
 			current_form = preload_human.instantiate()
 		3:
+			if light_detector and light_detector.in_light:
+				return
+			if current_form:
+				current_form.queue_free()
 			current_form = preload_beast.instantiate()
 	
 	current_form.set_direction(temp_direction)
