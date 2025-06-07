@@ -16,6 +16,7 @@ class_name FOV
 @onready var timer_since_saw_last_form: Timer = $last_form_detected
 var last_form_detected: String = ""
 var vampire_compramised: bool = false
+var vampire_location_spotted: Vector2
 
 signal form_swap_witnessed
 
@@ -46,10 +47,12 @@ func scan_enviroment(delta: float) -> float:
 		if detected_node is Human:
 			if vampire_compramised:
 				detection_meter.fill_gauge(detection_rate * delta * 0.7)
+				vampire_location_spotted = detected_node.global_position
 			else:
 				detection_meter.empty_gauge(delta * forget_rate)
 		elif detected_node is Beast:
 			detection_meter.fill_gauge(delta * detection_rate)
+			vampire_location_spotted = detected_node.global_position
 		elif detected_node is Bat:
 				detection_meter.empty_gauge(delta * forget_rate)
 	else:
