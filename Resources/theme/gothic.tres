@@ -3,4 +3,5 @@
 [ext_resource type="FontFile" uid="uid://cgf4itifrv7j7" path="res://Resources/font/OldeTome.ttf" id="1_rawy0"]
 
 [resource]
+Button/fonts/font = ExtResource("1_rawy0")
 Label/fonts/font = ExtResource("1_rawy0")

@@ -1,53 +1,76 @@
-[gd_scene load_steps=7 format=3 uid="uid://b64hu8w8db2fd"]
+[gd_scene load_steps=13 format=3 uid="uid://b64hu8w8db2fd"]
 
 [ext_resource type="Script" uid="uid://cnrdhw1cuu6dr" path="res://Utility/misc/title_ui.gd" id="1_ad2fi"]
-[ext_resource type="AudioStream" uid="uid://dt44bviobqoc5" path="res://Resources/audio/soundEffects/Party Horn - Sound Effect (HD).mp3" id="2_0wjnw"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_0wjnw"]
-font_size = 76
-outline_size = 25
-outline_color = Color(0.164706, 0.788235, 0, 1)
+[ext_resource type="Theme" uid="uid://s674w0oykrwq" path="res://Resources/theme/gothic.tres" id="1_vjvb8"]
+[ext_resource type="AudioStream" uid="uid://ckrlwauoujelo" path="res://Resources/audio/music/Max Video Game preamble.wav" id="3_yty8a"]
+[ext_resource type="Texture2D" uid="uid://bnx6jf2d7xinx" path="res://Resources/debugTextures/monster_pixel_full.png" id="4_ecakf"]
+[ext_resource type="Script" uid="uid://c2ucp1is0n85i" path="res://Main/menu_ui/title.gd" id="4_yty8a"]
+[ext_resource type="AudioStream" uid="uid://bcpjde2psogk5" path="res://Resources/audio/soundEffects/lightning-strike-jeff-kaale-1-00-02.mp3" id="6_rs2rm"]
 
 [sub_resource type="Animation" id="Animation_0wjnw"]
 resource_name = "RESET"
-
-[sub_resource type="Animation" id="Animation_vjvb8"]
-length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("fade_background:color")
+tracks/0/path = NodePath("CanvasLayer/Polygon2D:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+"values": [Color(0, 0, 0, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("PanelContainer:position")
+tracks/1/path = NodePath("AudioStreamPlayer2D2:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.5, 1.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_vjvb8"]
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Polygon2D:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.4667, 3.06667, 3.56667),
+"transitions": PackedFloat32Array(50.2134, 0.420448, 21.8566, 1),
 "update": 0,
-"values": [Vector2(732.5, -500), Vector2(732.5, 257)]
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D2:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.2, 2.96667, 6.56667),
+"transitions": PackedFloat32Array(1, 0.233258, 1),
+"update": 1,
+"values": [true, true, false]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("PanelContainer:modulate")
+tracks/2/path = NodePath("AudioStreamPlayer2D:playing")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.5, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 0), Color(1, 1, 1, 1)]
+"times": PackedFloat32Array(3.56667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ecakf"]
@@ -56,6 +79,17 @@ _data = {
 &"fade_out": SubResource("Animation_vjvb8")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yty8a"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0wjnw"]
+font_size = 76
+outline_size = 25
+outline_color = Color(0.598898, 0.00080903, 0.000443525, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rs2rm"]
+bg_color = Color(0.28485, 0.28485, 0.28485, 1)
+
 [node name="title_ui" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -63,54 +97,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_vjvb8")
 script = ExtResource("1_ad2fi")
-
-[node name="PanelContainer" type="PanelContainer" parent="."]
-modulate = Color(0, 0, 0, 0)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -227.5
-offset_top = -1010.0
-offset_right = 227.5
-offset_bottom = -504.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 30
-theme_override_constants/margin_bottom = 50
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 150
-
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Game Title"
-label_settings = SubResource("LabelSettings_0wjnw")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/separation = 25
-
-[node name="Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-theme_override_font_sizes/font_size = 40
-text = "Start"
-
-[node name="Button2" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 40
-text = "Quit"
 
 [node name="fade_background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -128,8 +116,80 @@ libraries = {
 }
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_0wjnw")
+stream = ExtResource("3_yty8a")
 max_polyphony = 111
+script = ExtResource("4_yty8a")
 
-[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/Button2" to="." method="quit"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1412, 585)
+scale = Vector2(0.664275, 0.664275)
+texture = ExtResource("4_ecakf")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+color = Color(0.0666667, 0.627451, 0.615686, 1)
+blend_mode = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -714.0
+offset_top = -261.0
+offset_right = -239.0
+offset_bottom = 245.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_vjvb8")
+theme_override_styles/panel = SubResource("StyleBoxFlat_yty8a")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 150
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Blood Light"
+label_settings = SubResource("LabelSettings_0wjnw")
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 25
+
+[node name="Button" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_rs2rm")
+text = "Start"
+
+[node name="Button2" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_rs2rm")
+text = "Quit"
+
+[node name="Polygon2D" type="Polygon2D" parent="CanvasLayer"]
+position = Vector2(-0.11, -0.195)
+color = Color(0, 0, 0, 1)
+invert_enabled = true
+invert_border = 16384.0
+polygon = PackedVector2Array(1166, 362, 1166, 360, 1168, 360, 1168, 358, 1170, 358, 1170, 356, 1174, 356, 1174, 360, 1170, 360, 1170, 362)
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_rs2rm")
+pitch_scale = 0.7
+
+[connection signal="pressed" from="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/Button2" to="." method="quit"]

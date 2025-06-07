@@ -8,12 +8,15 @@ func _physics_process(delta: float) -> void:
 		attacking = true
 		velocity = Vector2(0, 0)
 		$Attack.attack()
-	elif !attacking:
-		$Humaniod_Player_Movement.movement_action(delta)
+	$Humaniod_Player_Movement.movement_action(delta)
+	if !attacking:
 		if velocity == Vector2.ZERO:
 			$AnimatedSprite2D.play("idle")
 		else:
 			$AnimatedSprite2D.play("move")
-		print($Direction.direction)
 		$Direction.determind_direction(velocity)
 	move_and_slide()
+
+
+func _on_attack_attack_done() -> void:
+	attacking = false

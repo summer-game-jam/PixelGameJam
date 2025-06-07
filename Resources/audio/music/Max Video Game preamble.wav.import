@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ckrlwauoujelo"
+path="res://.godot/imported/Max Video Game preamble.wav-05d68b9a99a96464fc1c28cb75e20914.sample"
+
+[deps]
+
+source_file="res://Resources/audio/music/Max Video Game preamble.wav"
+dest_files=["res://.godot/imported/Max Video Game preamble.wav-05d68b9a99a96464fc1c28cb75e20914.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" uid="uid://odwh3mu2opnb" path="res://Maps/Light.gd" id="1_wr0uh"]
 
-[sub_resource type="Gradient" id="Gradient_4th80"]
+[sub_resource type="Gradient" id="Gradient_wr0uh"]
 interpolation_color_space = 1
 offsets = PackedFloat32Array(0, 0.824675)
 colors = PackedColorArray(0.782913, 0.406042, 0, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_nw82r"]
-gradient = SubResource("Gradient_4th80")
+gradient = SubResource("Gradient_wr0uh")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 

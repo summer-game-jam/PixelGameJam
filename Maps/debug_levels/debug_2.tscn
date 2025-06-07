@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://d4c32132fyolh" path="res://NPC/soliders/guards/guard_torch_sword/guard_torch_sword.tscn" id="4_220em"]
 [ext_resource type="PackedScene" uid="uid://dumpp8bjs41dw" path="res://NPC/villagers/villager_nothing/villager.tscn" id="5_ne8dc"]
 [ext_resource type="PackedScene" uid="uid://chbca1icmanma" path="res://NPC/soliders/guards/guard_spear/guard_spear.tscn" id="6_klqne"]
-[ext_resource type="PackedScene" uid="uid://dtj22hehi0wa4" path="res://Maps/Map_Features/light.tscn" id="6_ne8dc"]
+[ext_resource type="PackedScene" uid="uid://c0yti7ifsx0hd" path="res://Maps/lights/torch.tscn" id="6_ne8dc"]
 
 [node name="Debug2" type="Node2D"]
 
@@ -27,12 +27,6 @@ position = Vector2(-442, -364)
 [node name="villager" parent="." instance=ExtResource("5_ne8dc")]
 position = Vector2(540, -360)
 
-[node name="Light" parent="." instance=ExtResource("6_ne8dc")]
-position = Vector2(542, -326)
-
-[node name="Light2" parent="." instance=ExtResource("6_ne8dc")]
-position = Vector2(1077, 548)
-
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 color = Color(0.617455, 0.617455, 0.617455, 1)
 blend_mode = 1
@@ -44,3 +38,15 @@ position = Vector2(1291, -353)
 
 [node name="GuardSpear2" parent="." instance=ExtResource("6_klqne")]
 position = Vector2(-178, -2)
+
+[node name="Torch" parent="." instance=ExtResource("6_ne8dc")]
+position = Vector2(358, -299)
+
+[node name="Torch2" parent="." instance=ExtResource("6_ne8dc")]
+position = Vector2(758, -295)
+
+[node name="Torch3" parent="." instance=ExtResource("6_ne8dc")]
+position = Vector2(-461, 366)
+
+[node name="Torch4" parent="." instance=ExtResource("6_ne8dc")]
+position = Vector2(1106, 562)

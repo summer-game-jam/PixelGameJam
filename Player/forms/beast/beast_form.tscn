@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://dei0gecspkm2q"]
+[gd_scene load_steps=21 format=3 uid="uid://dei0gecspkm2q"]
 
 [ext_resource type="Script" uid="uid://b6qqcem46jvo8" path="res://Player/forms/beast/beast_form.gd" id="1_iampk"]
 [ext_resource type="PackedScene" uid="uid://d4g2daqok5rfd" path="res://Player/movement/humaniod_player_movement.tscn" id="3_ffoug"]
 [ext_resource type="PackedScene" uid="uid://c13m6iksgp46u" path="res://Utility/direction/direction.tscn" id="4_s5h7k"]
 [ext_resource type="Texture2D" uid="uid://dsmnilf51k5mf" path="res://Resources/entities/monster/Sprite-0004.png" id="5_56744"]
+[ext_resource type="Texture2D" uid="uid://bc7grjeuvs327" path="res://Resources/entities/monster/Sprite-0001.png" id="5_bspnd"]
 [ext_resource type="PackedScene" uid="uid://c6ie4wb6e3uhs" path="res://Maps/light_detector/light_detector.tscn" id="5_y747o"]
 [ext_resource type="Texture2D" uid="uid://bqfax5gpqf4ms" path="res://Resources/entities/monster/Sprite-0004-Sheet.png" id="6_56744"]
 [ext_resource type="Script" uid="uid://yjb52mvvfm5" path="res://Player/abilities/attack_base/attack.gd" id="7_u6i06"]
@@ -11,6 +12,10 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_01pw2"]
 radius = 101.0
 height = 292.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hntie"]
+atlas = ExtResource("5_bspnd")
+region = Rect2(0, 0, 256, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u6i06"]
 atlas = ExtResource("5_56744")
@@ -36,9 +41,17 @@ region = Rect2(384, 0, 128, 128)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_u6i06")
+"texture": SubResource("AtlasTexture_hntie")
 }],
 "loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u6i06")
+}],
+"loop": false,
 "name": &"idle",
 "speed": 5.0
 }, {
@@ -55,15 +68,100 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ijah5")
 }],
-"loop": true,
+"loop": false,
 "name": &"move",
 "speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bspnd"]
+size = Vector2(143.5, 170.5)
+
+[sub_resource type="Animation" id="Animation_iunhx"]
+resource_name = "attack"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"attack", &"idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Attack:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.133333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_l5lso"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Attack:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vyqq3"]
+_data = {
+&"RESET": SubResource("Animation_l5lso"),
+&"attack": SubResource("Animation_iunhx")
+}
 
 [node name="BeastForm" type="CharacterBody2D" groups=["player"]]
-scale = Vector2(-1, 1)
 collision_layer = 130
 script = ExtResource("1_iampk")
 
@@ -79,15 +177,21 @@ shape = SubResource("CapsuleShape2D_01pw2")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2.21256, 2.21256)
 sprite_frames = SubResource("SpriteFrames_bspnd")
-animation = &"move"
-frame_progress = 0.0571714
+animation = &"idle"
 
 [node name="Attack" type="Area2D" parent="."]
+monitoring = false
 script = ExtResource("7_u6i06")
 metadata/_custom_type_script = "uid://yjb52mvvfm5"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Attack"]
+position = Vector2(108.25, 48.25)
 shape = SubResource("RectangleShape2D_bspnd")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Attack"]
 root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_vyqq3")
+}
+
+[connection signal="attack_done" from="Attack" to="." method="_on_attack_attack_done"]
