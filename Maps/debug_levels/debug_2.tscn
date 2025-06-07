@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=4 uid="uid://bjob7x3j5yt06"]
+[gd_scene load_steps=7 format=4 uid="uid://bjob7x3j5yt06"]
 
 [ext_resource type="PackedScene" uid="uid://ofwypikl66dw" path="res://Player/form_controller/player_controller.tscn" id="1_cjgy0"]
 [ext_resource type="TileSet" uid="uid://fokgn5f2cgji" path="res://Maps/Map_Features/master_set.tres" id="3_220em"]
 [ext_resource type="PackedScene" uid="uid://d4c32132fyolh" path="res://NPC/soliders/guards/guard_torch_sword/guard_torch_sword.tscn" id="4_220em"]
 [ext_resource type="PackedScene" uid="uid://dumpp8bjs41dw" path="res://NPC/villagers/villager_nothing/villager.tscn" id="5_ne8dc"]
+[ext_resource type="PackedScene" uid="uid://chbca1icmanma" path="res://NPC/soliders/guards/guard_spear/guard_spear.tscn" id="6_klqne"]
 [ext_resource type="PackedScene" uid="uid://dtj22hehi0wa4" path="res://Maps/Map_Features/light.tscn" id="6_ne8dc"]
 
 [node name="Debug2" type="Node2D"]
@@ -26,9 +27,6 @@ position = Vector2(-442, -364)
 [node name="villager" parent="." instance=ExtResource("5_ne8dc")]
 position = Vector2(540, -360)
 
-[node name="GuardTorchSword2" parent="." instance=ExtResource("4_220em")]
-position = Vector2(1321, -356)
-
 [node name="Light" parent="." instance=ExtResource("6_ne8dc")]
 position = Vector2(542, -326)
 
@@ -40,3 +38,9 @@ color = Color(0.617455, 0.617455, 0.617455, 1)
 blend_mode = 1
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="GuardSpear" parent="." instance=ExtResource("6_klqne")]
+position = Vector2(1291, -353)
+
+[node name="GuardSpear2" parent="." instance=ExtResource("6_klqne")]
+position = Vector2(-178, -2)

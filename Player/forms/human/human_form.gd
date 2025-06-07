@@ -17,7 +17,7 @@ func _physics_process(delta: float) -> void:
 			$AnimatedSprite2D.play("idle")
 		else:
 			$AnimatedSprite2D.play("move")
-		print(velocity)
+		print($Direction.direction)
 		$Direction.determind_direction(velocity)
 	move_and_slide()
 

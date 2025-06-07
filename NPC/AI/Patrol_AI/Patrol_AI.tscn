@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1vo5d7c2epps"]
+
+[ext_resource type="Script" uid="uid://v5j780vritwn" path="res://NPC/AI/Patrol_AI/Patrol_AI.gd" id="1_p0a6i"]
+
+[node name="PatrolAi" type="Node"]
+script = ExtResource("1_p0a6i")
+metadata/_custom_type_script = "uid://v5j780vritwn"

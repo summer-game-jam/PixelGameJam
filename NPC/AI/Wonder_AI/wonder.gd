@@ -19,6 +19,7 @@ func perform_best_action(npc: NPC, delta: float):
 	
 	if current_state == states.walk:
 		npc.velocity.x = npc.move_speed * delta * direction
+		npc.sprite.play("moving")
 	else:
 		npc.velocity.x = 0
 

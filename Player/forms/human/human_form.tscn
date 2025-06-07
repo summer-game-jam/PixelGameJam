@@ -96,12 +96,12 @@ _data = {
 }
 
 [node name="HumanForm" type="CharacterBody2D" groups=["player"]]
-scale = Vector2(-1.13313, 1.13313)
 collision_layer = 130
 script = ExtResource("1_nhyly")
 
 [node name="Humaniod_Player_Movement" parent="." instance=ExtResource("2_hxqw4")]
-horizontal_move_speed = 30000
+speed_limit = 100.0
+horizontal_move_speed = 10000
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2.03014, 2.03014)

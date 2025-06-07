@@ -11,6 +11,7 @@ var current_ai: AI_Base = null
 @onready var direction = $Direction
 @onready var wall := $wall
 @onready var ground := $ground
+@onready var sprite := $AnimatedSprite2D
 
 var move_speed = 5000
 var gravity = 1000
@@ -46,7 +47,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.y += gravity * delta
 	
-	#apply determind movement
+
 	move_and_slide()
 
 func determind_state(delta: float) -> AI_Base:
@@ -70,3 +71,4 @@ func on_hit():
 	current_health -= 1
 	if current_health <= 0:
 		status = states.dead
+		sprite.play("dead")
