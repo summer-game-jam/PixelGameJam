@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://cgl75nfhfrfia"]
+[gd_scene load_steps=11 format=3 uid="uid://cgl75nfhfrfia"]
 
 [ext_resource type="Script" uid="uid://bs75y52fkfx4d" path="res://Player/forms/human/human_form.gd" id="1_nhyly"]
 [ext_resource type="PackedScene" uid="uid://d4g2daqok5rfd" path="res://Player/movement/humaniod_player_movement.tscn" id="2_hxqw4"]
 [ext_resource type="SpriteFrames" uid="uid://i4x6x1uey22t" path="res://Player/forms/human/human.tres" id="3_8y7ay"]
 [ext_resource type="PackedScene" uid="uid://c13m6iksgp46u" path="res://Utility/direction/direction.tscn" id="5_uakvs"]
 [ext_resource type="Script" uid="uid://yjb52mvvfm5" path="res://Player/abilities/attack_base/attack.gd" id="6_lpxol"]
+[ext_resource type="PackedScene" uid="uid://c6ie4wb6e3uhs" path="res://Maps/light_detector/light_detector.tscn" id="6_ndvua"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0foxj"]
 radius = 38.0
@@ -96,12 +97,13 @@ _data = {
 }
 
 [node name="HumanForm" type="CharacterBody2D" groups=["player"]]
-scale = Vector2(-1.13313, 1.13313)
 collision_layer = 130
+wall_min_slide_angle = 1.06989
 script = ExtResource("1_nhyly")
 
 [node name="Humaniod_Player_Movement" parent="." instance=ExtResource("2_hxqw4")]
-horizontal_move_speed = 30000
+speed_limit = 400.0
+horizontal_move_speed = 10000
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2.03014, 2.03014)
@@ -133,6 +135,8 @@ polygon = PackedVector2Array(41, -9, 148, -7, 146, 13, 44, 16)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Attack"]
 scale = Vector2(0.521002, 4.35611)
 polygon = PackedVector2Array(44.1457, -7.80512, 228.406, -7.57556, 172.744, 11.4781, 42, 14)
+
+[node name="LightDetector" parent="." instance=ExtResource("6_ndvua")]
 
 [connection signal="property_list_changed" from="Direction" to="Direction" method="_on_property_list_changed"]
 [connection signal="area_entered" from="Attack" to="Attack" method="_on_area_entered"]

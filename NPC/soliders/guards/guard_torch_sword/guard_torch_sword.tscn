@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d4c32132fyolh"]
+[gd_scene load_steps=17 format=3 uid="uid://d4c32132fyolh"]
 
 [ext_resource type="Script" uid="uid://cvl6qkiqptpt6" path="res://NPC/npc/npc.gd" id="1_jp0il"]
 [ext_resource type="Script" uid="uid://v5j780vritwn" path="res://NPC/AI/Patrol_AI/Patrol_AI.gd" id="2_a47gs"]
@@ -14,6 +14,45 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_moies"]
 radius = 36.0
 height = 164.0
+
+[sub_resource type="Animation" id="Animation_bajbd"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionPolygon2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-20.515, -31)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionPolygon2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_owi1u"]
 resource_name = "attack"
@@ -63,45 +102,6 @@ tracks/2/keys = {
 "values": [false, true, false]
 }
 
-[sub_resource type="Animation" id="Animation_bajbd"]
-resource_name = "RESET"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CollisionPolygon2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-20.515, -31)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CollisionPolygon2D:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:monitoring")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qpc3l"]
 _data = {
 &"RESET": SubResource("Animation_bajbd"),
@@ -110,6 +110,29 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qpc3l"]
 size = Vector2(70, 153)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qpc3l"]
+animations = [{
+"frames": [],
+"loop": false,
+"name": &"attacking",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": false,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": false,
+"name": &"moving",
+"speed": 5.0
+}]
 
 [node name="GuardTorchSword" type="CharacterBody2D" node_paths=PackedStringArray("normal_AI", "combat_AI", "alert_AI")]
 collision_layer = 0
@@ -177,6 +200,10 @@ metadata/_custom_type_script = "uid://cemvtjwsihfye"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hit_Box2"]
 position = Vector2(1, 1.5)
 shape = SubResource("RectangleShape2D_qpc3l")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qpc3l")
+animation = &"moving"
 
 [connection signal="animation_finished" from="Hit_Box/AnimationPlayer" to="MeleeAi" method="attack_finished"]
 [connection signal="attack" from="MeleeAi" to="Hit_Box" method="attack"]
