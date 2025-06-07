@@ -18,6 +18,7 @@ func perform_best_action(npc: NPC, delta: float):
 		var players: Array[Node] = get_tree().get_nodes_in_group("player")
 		if players.size() > 0:
 			var player = players[0]
+			
 			# face them
 			if npc.global_position.x < player.global_position.x:
 				npc.direction.swap_direction(Direction.directions.right)
