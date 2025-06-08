@@ -4,7 +4,7 @@
 [ext_resource type="Theme" uid="uid://s674w0oykrwq" path="res://Resources/theme/gothic.tres" id="1_vjvb8"]
 [ext_resource type="AudioStream" uid="uid://ckrlwauoujelo" path="res://Resources/audio/music/Max Video Game preamble.wav" id="3_yty8a"]
 [ext_resource type="Texture2D" uid="uid://bnx6jf2d7xinx" path="res://Resources/debugTextures/monster_pixel_full.png" id="4_ecakf"]
-[ext_resource type="Script" uid="uid://c2ucp1is0n85i" path="res://Main/menu_ui/title.gd" id="4_yty8a"]
+[ext_resource type="Script" path="res://Main/menu_ui/title.gd" id="4_yty8a"]
 [ext_resource type="AudioStream" uid="uid://bcpjde2psogk5" path="res://Resources/audio/soundEffects/lightning-strike-jeff-kaale-1-00-02.mp3" id="6_rs2rm"]
 
 [sub_resource type="Animation" id="Animation_0wjnw"]
