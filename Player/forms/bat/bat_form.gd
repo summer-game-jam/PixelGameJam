@@ -12,6 +12,7 @@ var current_state: modes = modes.flight
 
 func _ready() -> void:
 	flight_meter.connect("gauge_emptied", gauge_empty)
+	$AnimatedSprite2D.play("fly")
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("space"):

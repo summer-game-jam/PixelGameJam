@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ofwypikl66dw"]
+[gd_scene load_steps=4 format=3 uid="uid://ofwypikl66dw"]
 
 [ext_resource type="Script" uid="uid://dnygllph1gpft" path="res://Player/form_controller/player_controller.gd" id="1_nfdri"]
 [ext_resource type="PackedScene" uid="uid://xvwkhxx3i6op" path="res://Utility/fill_gauge/Fill_Gauge.tscn" id="2_askd6"]
+[ext_resource type="PackedScene" uid="uid://dicbx3yfvdhwl" path="res://Maps/ui/ui.tscn" id="3_6kgaj"]
 
 [node name="PlayerController" type="Node2D"]
 script = ExtResource("1_nfdri")
@@ -12,5 +13,12 @@ gauge_max = 0.8
 [node name="form_switch_cooldown" type="Timer" parent="."]
 one_shot = true
 autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Ui" parent="CanvasLayer" instance=ExtResource("3_6kgaj")]
+anchors_preset = 10
+anchor_bottom = 0.0
+grow_vertical = 1
 
 [connection signal="gauge_emptied" from="flight_meter" to="." method="out_of_flight"]

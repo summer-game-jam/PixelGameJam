@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://chbca1icmanma"]
+[gd_scene load_steps=34 format=3 uid="uid://chbca1icmanma"]
 
 [ext_resource type="Script" uid="uid://cvl6qkiqptpt6" path="res://NPC/npc/npc.gd" id="1_vmucx"]
 [ext_resource type="Texture2D" uid="uid://bhbhqh7gfhftg" path="res://Resources/entities/spear_guard/Sprite-0004.png" id="2_eac2u"]
@@ -23,6 +23,10 @@ region = Rect2(0, 64, 128, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_4uvfn"]
 atlas = ExtResource("2_eac2u")
 region = Rect2(256, 64, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0n4i"]
+atlas = ExtResource("2_eac2u")
+region = Rect2(0, 192, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2bxly"]
 atlas = ExtResource("2_eac2u")
@@ -90,7 +94,10 @@ animations = [{
 "name": &"attacking",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0n4i")
+}],
 "loop": false,
 "name": &"dead",
 "speed": 5.0
@@ -146,6 +153,45 @@ height = 164.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uer34"]
 size = Vector2(56, 140)
 
+[sub_resource type="Animation" id="Animation_0qyyf"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:monitoring")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../AnimatedSprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_2bxly"]
 resource_name = "attack"
 length = 1.5
@@ -186,45 +232,6 @@ tracks/2/keys = {
 "values": [true, false]
 }
 
-[sub_resource type="Animation" id="Animation_0qyyf"]
-resource_name = "RESET"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:monitoring")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../AnimatedSprite2D:animation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"idle"]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../AnimatedSprite2D:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g5yxf"]
 _data = {
 &"RESET": SubResource("Animation_0qyyf"),
@@ -235,7 +242,7 @@ _data = {
 radius = 8.0152
 height = 78.0131
 
-[node name="GuardSpear" type="CharacterBody2D" node_paths=PackedStringArray("normal_AI", "combat_AI", "alert_AI")]
+[node name="GuardSpear" type="CharacterBody2D" node_paths=PackedStringArray("normal_AI", "combat_AI", "alert_AI") groups=["npc"]]
 collision_layer = 0
 script = ExtResource("1_vmucx")
 normal_AI = NodePath("WonderAi")

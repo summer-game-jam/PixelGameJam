@@ -51,6 +51,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func determind_state(delta: float) -> AI_Base:
+	if status == states.dead:
+		return
 	var detection_precent: float = detection.scan_enviroment(delta)
 	if detection_precent >= 1:
 		status = states.combat

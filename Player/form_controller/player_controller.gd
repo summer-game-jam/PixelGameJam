@@ -6,6 +6,12 @@ class_name Player_Controller
 var current_form: Player_Base
 var light_detector: LightDetector
 
+var kills: int = 0
+
+@export var level1: int = 1 # monster tf
+@export var level2: int = 2 # bat tf
+@export var level3: int = 3 # win
+
 var last_form:int = 2
 
 var preload_bat = preload("res://Player/forms/bat/bat_form.tscn")
@@ -14,6 +20,7 @@ var preload_human = preload("res://Player/forms/human/human_form.tscn")
 
 func _ready() -> void:
 	switch_forms(3)
+	set_ui()
 
 func _physics_process(delta: float) -> void:
 	# Update light detector
@@ -99,3 +106,11 @@ func convert_body_to_enum(body: CharacterBody2D) -> int:
 
 func out_of_flight():
 	switch_forms(last_form)
+
+
+func set_ui():
+	var running_total:int = get_tree().get_nodes_in_group("npc").size()
+	var dead:int = 0
+	for child in get_tree().get_nodes_in_group("npc"):
+		if child.status == NPC.states.dead:
+			dead += 1

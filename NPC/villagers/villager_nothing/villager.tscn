@@ -74,7 +74,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="villager" type="CharacterBody2D" node_paths=PackedStringArray("normal_AI", "combat_AI", "alert_AI")]
+[node name="villager" type="CharacterBody2D" node_paths=PackedStringArray("normal_AI", "combat_AI", "alert_AI") groups=["npc"]]
 collision_layer = 0
 script = ExtResource("1_coyar")
 normal_AI = NodePath("WonderAi")

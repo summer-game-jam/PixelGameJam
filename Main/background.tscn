@@ -1,0 +1,131 @@
+[gd_scene load_steps=4 format=3 uid="uid://tat0h8nywa50"]
+
+[ext_resource type="Texture2D" uid="uid://ctj5i8sbgomo7" path="res://Resources/sprites/moon.png" id="1_ifnsg"]
+[ext_resource type="Texture2D" uid="uid://becwjtkyy8yo" path="res://Resources/sprites/Sprite-0005.png" id="1_x1rqk"]
+[ext_resource type="Texture2D" uid="uid://dtd7xgrguac7u" path="res://Resources/sprites/mountain1.png" id="3_hrki4"]
+
+[node name="Background" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="background" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 1)
+
+[node name="Polygon2D" type="Polygon2D" parent="ParallaxBackground/background"]
+scale = Vector2(200, 200)
+color = Color(0.000113828, 0.000113828, 0.000113828, 1)
+polygon = PackedVector2Array(-3091, -1927, 5043, -2058, 5019, 4682, -5531, 4666)
+
+[node name="stars" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.02, 0)
+motion_mirroring = Vector2(1920, 1020)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/stars"]
+position = Vector2(55, 66)
+texture = ExtResource("1_x1rqk")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/stars"]
+position = Vector2(129, 543)
+scale = Vector2(0.595, 0.595)
+texture = ExtResource("1_x1rqk")
+
+[node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground/stars"]
+position = Vector2(151, 272)
+scale = Vector2(0.595, 0.595)
+texture = ExtResource("1_x1rqk")
+
+[node name="Sprite2D4" type="Sprite2D" parent="ParallaxBackground/stars"]
+position = Vector2(1570, 405)
+scale = Vector2(0.595, 0.595)
+texture = ExtResource("1_x1rqk")
+
+[node name="Sprite2D5" type="Sprite2D" parent="ParallaxBackground/stars"]
+position = Vector2(1187, 876)
+scale = Vector2(0.595, 0.595)
+texture = ExtResource("1_x1rqk")
+
+[node name="Sprite2D6" type="Sprite2D" parent="ParallaxBackground/stars"]
+position = Vector2(250, 876)
+scale = Vector2(0.595, 0.595)
+texture = ExtResource("1_x1rqk")
+
+[node name="Sprite2D7" type="Sprite2D" parent="ParallaxBackground/stars"]
+position = Vector2(677, 187)
+scale = Vector2(0.595, 0.595)
+texture = ExtResource("1_x1rqk")
+
+[node name="Sprite2D8" type="Sprite2D" parent="ParallaxBackground/stars"]
+position = Vector2(1193, 453)
+scale = Vector2(0.595, 0.595)
+texture = ExtResource("1_x1rqk")
+
+[node name="Sprite2D9" type="Sprite2D" parent="ParallaxBackground/stars"]
+position = Vector2(1351, 164)
+scale = Vector2(0.595, 0.595)
+texture = ExtResource("1_x1rqk")
+
+[node name="Sprite2D10" type="Sprite2D" parent="ParallaxBackground/stars"]
+position = Vector2(1627, 789)
+scale = Vector2(0.595, 0.595)
+texture = ExtResource("1_x1rqk")
+
+[node name="Sprite2D11" type="Sprite2D" parent="ParallaxBackground/stars"]
+position = Vector2(1627, 789)
+scale = Vector2(0.595, 0.595)
+texture = ExtResource("1_x1rqk")
+
+[node name="Sprite2D12" type="Sprite2D" parent="ParallaxBackground/stars"]
+position = Vector2(1465, 670)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_x1rqk")
+
+[node name="Sprite2D13" type="Sprite2D" parent="ParallaxBackground/stars"]
+position = Vector2(541, 672)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_x1rqk")
+
+[node name="Sprite2D14" type="Sprite2D" parent="ParallaxBackground/stars"]
+position = Vector2(1067, 163)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_x1rqk")
+
+[node name="Sprite2D15" type="Sprite2D" parent="ParallaxBackground/stars"]
+position = Vector2(899, 598)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_x1rqk")
+
+[node name="Sprite2D16" type="Sprite2D" parent="ParallaxBackground/stars"]
+position = Vector2(585, 78)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_x1rqk")
+
+[node name="Sprite2D17" type="Sprite2D" parent="ParallaxBackground/stars"]
+position = Vector2(585, 78)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_x1rqk")
+
+[node name="moon" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-38, -258)
+motion_scale = Vector2(0.03, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/moon"]
+position = Vector2(883, 515)
+scale = Vector2(1.98226, 1.98226)
+texture = ExtResource("1_ifnsg")
+
+[node name="mountain" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 0)
+motion_mirroring = Vector2(2621.88, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/mountain"]
+clip_children = 2
+position = Vector2(1462, 630)
+scale = Vector2(5.35388, 5.35388)
+texture = ExtResource("3_hrki4")
+
+[node name="Polygon2D" type="Polygon2D" parent="ParallaxBackground/mountain/Sprite2D"]
+clip_children = 2
+position = Vector2(-253.835, -109.08)
+scale = Vector2(0.18678, 0.18678)
+color = Color(0.0313726, 0, 0, 0.933333)
+polygon = PackedVector2Array(844, 224, 1951, 263, 2089, 1087, 1302, 1245, 690, 1140, 762, 700, 854, 242)

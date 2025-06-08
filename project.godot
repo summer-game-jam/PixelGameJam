@@ -40,6 +40,7 @@ folder_colors={
 [global_group]
 
 player="is a player character; used for npc ai"
+npc=""
 
 [input]
 
