@@ -3,7 +3,7 @@ class_name FOV
 
 @onready var detection_meter = $FillGauge
 ## per sec
-@export var detection_rate: float = 60
+@export var detection_rate: float = 70
 ## per sec
 @export var forget_rate: float = 30
 @export var time_to_start_forgeting = 2
@@ -48,6 +48,9 @@ func scan_enviroment(delta: float) -> float:
 			if vampire_compramised:
 				detection_meter.fill_gauge(detection_rate * delta * 0.7)
 				vampire_location_spotted = detected_node.global_position
+			elif detected_node.attacking:
+				vampire_compramised = true
+				detection_meter.fill_gauge(10000)
 			else:
 				detection_meter.empty_gauge(delta * forget_rate)
 		elif detected_node is Beast:

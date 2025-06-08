@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1wjxfp0rv3xy"]
+
+[ext_resource type="Texture2D" uid="uid://becwjtkyy8yo" path="res://Resources/sprites/Sprite-0005.png" id="1_23pae"]
+
+[node name="Poof" type="CPUParticles2D"]
+emitting = false
+amount = 30
+texture = ExtResource("1_23pae")
+one_shot = true
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+angular_velocity_min = 180.0
+angular_velocity_max = 360.0
+color = Color(0.140447, 0.140447, 0.140447, 1)

@@ -8,4 +8,5 @@ func on_hit():
 	pass
 
 func die():
-	modulate = Color("black")
+	pass
+	#modulate = Color("black")

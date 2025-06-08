@@ -8,6 +8,8 @@ var light_detector: LightDetector
 
 var kills: int = 0
 
+var is_dead:bool = false
+
 @export var level1: int = 1 # monster tf
 @export var level2: int = 2 # bat tf
 @export var level3: int = 3 # win
@@ -56,7 +58,9 @@ func _physics_process(delta: float) -> void:
 		$flight_meter.fill_gauge(delta)
 	
 	if current_form is Beast and light_detector.in_light:
+		print("light")
 		switch_forms(2)
+	set_ui()
 
 func switch_forms(selection: int):
 	var temp_position: Vector2
@@ -94,6 +98,8 @@ func switch_forms(selection: int):
 	current_form.velocity = temp_speed
 	
 	$form_switch_cooldown.start()
+	$Poof.global_position = current_form.global_position
+	$Poof.emitting = true
 
 func convert_body_to_enum(body: CharacterBody2D) -> int:
 	if body is Bat:
@@ -114,3 +120,4 @@ func set_ui():
 	for child in get_tree().get_nodes_in_group("npc"):
 		if child.status == NPC.states.dead:
 			dead += 1
+	$CanvasLayer/Ui.update(dead, running_total)

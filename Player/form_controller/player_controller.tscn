@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ofwypikl66dw"]
+[gd_scene load_steps=5 format=3 uid="uid://ofwypikl66dw"]
 
 [ext_resource type="Script" uid="uid://dnygllph1gpft" path="res://Player/form_controller/player_controller.gd" id="1_nfdri"]
 [ext_resource type="PackedScene" uid="uid://xvwkhxx3i6op" path="res://Utility/fill_gauge/Fill_Gauge.tscn" id="2_askd6"]
 [ext_resource type="PackedScene" uid="uid://dicbx3yfvdhwl" path="res://Maps/ui/ui.tscn" id="3_6kgaj"]
+[ext_resource type="PackedScene" uid="uid://b1wjxfp0rv3xy" path="res://Player/poof.tscn" id="4_jxih7"]
 
 [node name="PlayerController" type="Node2D"]
 script = ExtResource("1_nfdri")
@@ -20,5 +21,8 @@ autostart = true
 anchors_preset = 10
 anchor_bottom = 0.0
 grow_vertical = 1
+
+[node name="Poof" parent="." instance=ExtResource("4_jxih7")]
+z_index = 2
 
 [connection signal="gauge_emptied" from="flight_meter" to="." method="out_of_flight"]

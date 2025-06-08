@@ -261,7 +261,7 @@ animation = &"idle"
 shape = SubResource("CapsuleShape2D_moies")
 
 [node name="MeleeAi" parent="." instance=ExtResource("4_7keli")]
-attempt_attack_range = 120.0
+attempt_attack_range = 100.0
 
 [node name="WonderAi" parent="." instance=ExtResource("5_ulprw")]
 

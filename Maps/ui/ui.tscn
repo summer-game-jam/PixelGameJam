@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dicbx3yfvdhwl"]
+[gd_scene load_steps=6 format=3 uid="uid://dicbx3yfvdhwl"]
 
 [ext_resource type="Theme" uid="uid://s674w0oykrwq" path="res://Resources/theme/gothic.tres" id="1_6kvdx"]
+[ext_resource type="Script" uid="uid://bbpusijv20mnv" path="res://Maps/ui/ui.gd" id="2_waldf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_waldf"]
 bg_color = Color(0, 0, 0, 1)
@@ -19,6 +20,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_6kvdx")
+script = ExtResource("2_waldf")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -51,6 +53,7 @@ offset_right = 35.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 20
 
 [node name="left" type="Label" parent="MarginContainer/ProgressBar/HBoxContainer"]
 layout_mode = 2

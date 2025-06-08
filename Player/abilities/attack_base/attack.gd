@@ -19,6 +19,7 @@ func _ready() -> void:
 			break
 
 func attack():
+	print(get_parent(), entities_hit)
 	if !anim_player.is_playing():
 		entities_hit = []
 		anim_player.play(animation)
@@ -26,7 +27,7 @@ func attack():
 func attack_finished(name: StringName):
 	if (name == "RESET"):
 		return
-	monitoring = false
+	#monitoring = false
 	anim_player.play("RESET")
 	emit_signal("attack_done")
 
@@ -34,9 +35,11 @@ func attack_finished(name: StringName):
 # must be a hit box of a entity
 # must have not been hit by same attack
 func _on_area_entered(area: Area2D) -> void:
+	print(area)
 	if area is Hit_Box:
 		var hit_box: Hit_Box = area
 		if !hit_box.parent == get_parent():
 			if !(hit_box in entities_hit):
+				print("DIE")
 				hit_box.parent.on_hit()
 				entities_hit.append(hit_box)

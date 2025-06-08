@@ -47,7 +47,6 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.y += gravity * delta
 	
-
 	move_and_slide()
 
 func determind_state(delta: float) -> AI_Base:
