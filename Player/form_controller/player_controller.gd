@@ -100,6 +100,7 @@ func switch_forms(selection: int):
 	$form_switch_cooldown.start()
 	$Poof.global_position = current_form.global_position
 	$Poof.emitting = true
+	$Camera2D.thing_to_follow = current_form
 
 func convert_body_to_enum(body: CharacterBody2D) -> int:
 	if body is Bat:

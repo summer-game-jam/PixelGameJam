@@ -59,9 +59,6 @@ tracks/2/keys = {
 "values": [0]
 }
 
-[sub_resource type="Animation" id="Animation_qoopa"]
-resource_name = "idle"
-
 [sub_resource type="Animation" id="Animation_46qxo"]
 resource_name = "attack"
 length = 0.8
@@ -101,6 +98,9 @@ tracks/2/keys = {
 "update": 1,
 "values": [0, 1]
 }
+
+[sub_resource type="Animation" id="Animation_qoopa"]
+resource_name = "idle"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pidx1"]
 _data = {

@@ -19,6 +19,7 @@ config/icon="uid://ca4owis7xnti2"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1020
+window/size/mode=3
 window/size/resizable=false
 window/size/borderless=true
 window/stretch/mode="viewport"
